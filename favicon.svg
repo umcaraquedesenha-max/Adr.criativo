@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#f01919"/>
+  <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#090909" stroke-width="3"/>
+  <text x="32" y="39" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="900" letter-spacing="-1.4" text-anchor="middle">ADR</text>
+  <circle cx="53" cy="11" r="3" fill="#fff"/>
+</svg>
