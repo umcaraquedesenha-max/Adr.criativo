@@ -504,10 +504,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
               <span class="shade"></span>
               <span class="inner"><span class="meta"><span class="chip">Beleza</span><span class="ig">1 vídeo</span></span><span class="play" aria-hidden="true"><svg><use href="#play"/></svg></span><span><span class="who">Studio J Smith</span><span class="handle">@studiojsmith</span></span></span>
             </button>
-            <button class="card" type="button" data-client="6" data-cursor="Play" aria-label="Assistir 1 vídeo de Ery">
+            <button class="card" type="button" data-client="6" data-cursor="Play" aria-label="Assistir 1 vídeo de Dra. Maria Erylania">
               <video class="loop" muted playsinline loop preload="none" poster="videos/ery-1.jpg" data-src="videos/ery-1-loop.mp4"></video>
               <span class="shade"></span>
-              <span class="inner"><span class="meta"><span class="chip">Estética</span><span class="ig">1 vídeo</span></span><span class="play" aria-hidden="true"><svg><use href="#play"/></svg></span><span><span class="who">Ery</span></span></span>
+              <span class="inner"><span class="meta"><span class="chip">Estética</span><span class="ig">1 vídeo</span></span><span class="play" aria-hidden="true"><svg><use href="#play"/></svg></span><span><span class="who">Dra. Maria Erylania</span><span class="handle">@dra.mariaerylania</span></span></span>
             </button>
             <a class="card card--cta" data-cursor="Falar" href="https://wa.me/5584999778721?text=Oi%2C%20Andr%C3%A9!%20Vi%20seu%20site%20e%20quero%20que%20minha%20marca%20seja%20a%20pr%C3%B3xima." target="_blank" rel="noopener">
               <span class="ini" aria-hidden="true">+1</span>
@@ -518,7 +518,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
         <div class="tl" id="tl" aria-hidden="true">
           <div class="ruler" id="ruler"></div>
           <div class="tracks">
-            <div class="tr"><b>V1</b><div class="clips" id="clips"><span class="clip">Nayara</span><span class="clip">Allan</span><span class="clip">Vida</span><span class="clip">Clube Casa</span><span class="clip">Bells</span><span class="clip">J Smith</span><span class="clip">Ery</span><span class="clip">Você</span></div></div>
+            <div class="tr"><b>V1</b><div class="clips" id="clips"><span class="clip">Nayara</span><span class="clip">Allan</span><span class="clip">Vida</span><span class="clip">Clube Casa</span><span class="clip">Bells</span><span class="clip">J Smith</span><span class="clip">Dra. Maria</span><span class="clip">Você</span></div></div>
             <div class="tr"><b>A1</b><canvas id="wave" width="1200" height="52"></canvas></div>
           </div>
           <span class="ph" id="ph"></span>
@@ -760,7 +760,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 
 
   /* portfolio videos: live previews + player */
-  var CLIENTS=[{"name": "Nayara Soares", "niche": "Psicologia", "handle": "@nayarasoares.psicologa", "vids": ["nayara-1", "nayara-2", "nayara-3", "nayara-4"]}, {"name": "Allan França", "niche": "Advocacia", "handle": "@adv.allanfranca", "vids": ["allan-1", "allan-2", "allan-3"]}, {"name": "Vida Corretora", "niche": "Planos de saúde", "handle": "@vidacorretora", "vids": ["vidacorretora-2", "vidacorretora-1", "vidacorretora-3"]}, {"name": "Clube Casa", "niche": "Arquitetura", "handle": "@clubecasa.natal", "vids": ["clubecasa-2", "clubecasa-1"]}, {"name": "Bells Cafeteria", "niche": "Cafeteria", "handle": "@bellscafeteriaedoceria", "vids": ["bells-1"]}, {"name": "Studio J Smith", "niche": "Beleza", "handle": "@studiojsmith", "vids": ["jackson-1"]}, {"name": "Ery", "niche": "Estética", "handle": "", "vids": ["ery-1"]}];
+  var CLIENTS=[{"name": "Nayara Soares", "niche": "Psicologia", "handle": "@nayarasoares.psicologa", "vids": ["nayara-1", "nayara-2", "nayara-3", "nayara-4"]}, {"name": "Allan França", "niche": "Advocacia", "handle": "@adv.allanfranca", "vids": ["allan-1", "allan-2", "allan-3"]}, {"name": "Vida Corretora", "niche": "Planos de saúde", "handle": "@vidacorretora", "vids": ["vidacorretora-2", "vidacorretora-1", "vidacorretora-3"]}, {"name": "Clube Casa", "niche": "Arquitetura", "handle": "@clubecasa.natal", "vids": ["clubecasa-2", "clubecasa-1"]}, {"name": "Bells Cafeteria", "niche": "Cafeteria", "handle": "@bellscafeteriaedoceria", "vids": ["bells-1"]}, {"name": "Studio J Smith", "niche": "Beleza", "handle": "@studiojsmith", "vids": ["jackson-1"]}, {"name": "Dra. Maria Erylania", "niche": "Estética", "handle": "@dra.mariaerylania", "vids": ["ery-1"]}];
   var flat=[];CLIENTS.forEach(function(c,ci){c.vids.forEach(function(v,vi){flat.push({ci:ci,vi:vi,id:v})})});
   var cards=$$('.card[data-client]');
   function loadLoop(c){var v=c.querySelector('video.loop');if(v&&!v.src){v.src=v.dataset.src}return v}
