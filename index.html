@@ -787,15 +787,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   var cards=$$('.card[data-client]');
   function loadLoop(c){var v=c.querySelector('video.loop');if(v&&!v.src){v.src=v.dataset.src}return v}
   var liveCard=null;
-  function setLive(c){
+  function setLive(c,user){
     if(liveCard===c)return;
     if(liveCard){liveCard.classList.remove('live');var ov=liveCard.querySelector('video.loop');if(ov)ov.pause()}
     liveCard=c;
-    if(c&&!reduce){c.classList.add('live');var v=loadLoop(c);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
+    if(c&&(!reduce||user)){c.classList.add('live');var v=loadLoop(c);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
   }
-  window.__setLiveIdx=function(i){setLive(cards[i]||null)};
+  window.__setLiveIdx=function(i){setLive(cards[i]||null,true)};
   cards.forEach(function(c){
-    if(fine){c.addEventListener('pointerenter',function(){setLive(c)})}
+    if(fine){c.addEventListener('pointerenter',function(){setLive(c,true)})}
     c.addEventListener('click',function(){openPlayer(+c.dataset.client,0,c)});
   });
   if(!fine&&'IntersectionObserver' in window){
