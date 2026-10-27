@@ -295,6 +295,24 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   .pl-wa{display:inline-flex!important}
 }
 
+/* booking card (agenda) */
+.book{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 20px;margin-top:30px;max-width:580px;padding:30px 18px 18px 20px;background:var(--white);color:var(--black);text-decoration:none;border-radius:10px;overflow:hidden;transition:transform .3s var(--ease)}
+.book:hover{transform:translateY(-3px)}
+.book .book-clap{position:absolute;width:auto;border:0;border-radius:0;margin:0;left:0;right:0;top:0;height:12px;background:repeating-linear-gradient(-45deg,var(--black) 0 12px,var(--white) 12px 24px);transform-origin:0 100%;animation:clap 4s 1.6s infinite}
+@keyframes clap{0%,12%,100%{transform:none}4%{transform:rotate(-6deg)}8%{transform:rotate(0)}}
+.book-txt{min-width:0}
+.book-live{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--red-btn)}
+.book-live i{width:9px;height:9px;border-radius:50%;background:var(--red);animation:ping 1.6s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(240,25,25,.55)}70%{box-shadow:0 0 0 10px rgba(240,25,25,0)}100%{box-shadow:0 0 0 0 rgba(240,25,25,0)}}
+.book strong{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(24px,2.3vw,32px);line-height:1;margin-top:6px}
+.book-hours{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+.book-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red-btn);color:#fff;font-weight:700;font-size:16px;padding:14px 18px;border-radius:999px;white-space:nowrap;transition:background-color .2s}
+.book:hover .book-go{background:#ec1515}
+.book-go svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.4}
+@media (max-width:560px){.book{grid-template-columns:1fr}.book-go{width:100%}}
+.nav a.nav-book{color:var(--white);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.nav a.nav-book i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+
 /* how */
 .how{background:var(--paper);color:var(--black);padding-block:clamp(80px,9vw,130px)}
 .how .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px)}
@@ -422,7 +440,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 @media (hover:none),(pointer:coarse){.cur{display:none}}
 
 @media (prefers-reduced-motion:reduce){
-  .grain,.rec i,.logo i,.cue i::after,.finale .ring::after,.plan--pro::before,#intro .leader::before{animation:none}
+  .book .book-clap,.book-live i,.grain,.rec i,.logo i,.cue i::after,.finale .ring::after,.plan--pro::before,#intro .leader::before{animation:none}
   .js .line > span,.js .fade,.js .vf-stage{transition:none}
   *{scroll-behavior:auto!important}
 }
@@ -437,6 +455,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
       <a href="#como">Como funciona</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
+      <a class="nav-book" href="https://agenda-adr-criativo.netlify.app" target="_blank" rel="noopener"><i aria-hidden="true"></i>Agendar gravação</a>
     </nav>
     <div class="tc" aria-hidden="true"><span>TC</span><b id="tc-scroll">00:00:00:00</b></div>
     <a class="btn btn--red" data-cursor="Falar" href="https://wa.me/5584999778721?text=Oi%2C%20Andr%C3%A9!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20conte%C3%BAdo%20para%20a%20minha%20marca." target="_blank" rel="noopener">
@@ -458,11 +477,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
       <div>
         <h1 id="hero-title"><span class="line"><span>Sua marca</span></span><span class="line"><span>precisa de</span></span><span class="line"><span class="red">um rosto.</span></span></h1>
         <p class="sub fade d1">Vídeos para o Instagram de empresários e profissionais de Natal/RN. Eu planejo, gravo e edito. Você só precisa aparecer.</p>
-        <div class="ctas fade d2">
+        <a class="book fade d2" data-cursor="Agendar" href="https://agenda-adr-criativo.netlify.app" target="_blank" rel="noopener">
+          <span class="book-clap" aria-hidden="true"></span>
+          <span class="book-txt"><span class="book-live"><i aria-hidden="true"></i>Agenda aberta</span><strong>Escolha o dia e o horário da sua gravação</strong><span class="book-hours">Segunda a sábado, das 12h às 17h</span></span>
+          <span class="book-go">Agendar agora <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <div class="ctas fade d3">
           <a class="btn btn--red" data-cursor="Falar" href="https://wa.me/5584999778721?text=Oi%2C%20Andr%C3%A9!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20conte%C3%BAdo%20para%20a%20minha%20marca." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero planejar meus vídeos</a>
           <a class="btn btn--ghost" href="#trabalhos">Ver trabalhos</a>
         </div>
-        <div class="cue fade d3" aria-hidden="true"><i></i>Role para dar play</div>
       </div>
       <div class="vf-stage">
         <figure class="vf" id="vf" style="margin:0" aria-label="Foto de André Gomes no visor de uma câmera">
