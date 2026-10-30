@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Roteiros da Dra. Maria Erylânia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: uma coluna de leitura (como um caderno de roteiros), cards por roteiro, barra fixa de aprovação embaixo */
+:root {
+  --bg: #f8efec;
+  --paper: #fffaf8;
+  --ink: #3b2a2a;
+  --muted: #8a706c;
+  --line: #ead7d1;
+  --rose: #a4475a;
+  --rose-soft: #f3dfe1;
+  --gold: #b48a4c;
+  --gold-soft: #f4e7d2;
+  --ok: #3f7d5c;
+  --ok-soft: #dcefe3;
+  --warn: #a3622a;
+  --warn-soft: #f8e4d0;
+  --shadow: 0 1px 2px rgba(90, 50, 45, .06), 0 10px 30px rgba(90, 50, 45, .07);
+  --f-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --f-body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1f1718; --paper: #2a2021; --ink: #f2e6e3; --muted: #bba5a1; --line: #43393a;
+    --rose: #e597a6; --rose-soft: #4a2d34; --gold: #d8b27a; --gold-soft: #45382a;
+    --ok: #8fd0aa; --ok-soft: #22392c; --warn: #f0b27c; --warn-soft: #45311f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1f1718; --paper: #2a2021; --ink: #f2e6e3; --muted: #bba5a1; --line: #43393a;
+  --rose: #e597a6; --rose-soft: #4a2d34; --gold: #d8b27a; --gold-soft: #45382a;
+  --ok: #8fd0aa; --ok-soft: #22392c; --warn: #f0b27c; --warn-soft: #45311f;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6; font-weight: 400;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 120px;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; line-height: 1.1; margin: 0; }
+p { margin: 0; }
+a { color: var(--rose); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+/* Capa */
+.cover { padding-block: 56px 36px; display: grid; gap: 18px; }
+.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.cover h1 { font-size: clamp(40px, 8vw, 64px); }
+.cover h1 em { font-style: italic; color: var(--rose); font-weight: 500; }
+.tagline { font-family: var(--f-display); font-style: italic; font-size: 22px; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 500; }
+
+.intro { background: var(--paper); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); display: grid; gap: 14px; }
+.intro h2 { font-size: 28px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+.step { display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
+.step strong { color: var(--ink); font-weight: 500; font-size: 16px; }
+.step .n { font-family: var(--f-display); font-size: 30px; color: var(--gold); line-height: 1; }
+
+/* Índice */
+.section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 48px 0 16px; flex-wrap: wrap; }
+.section-title h2 { font-size: 34px; }
+.section-title span { font-size: 14px; color: var(--muted); }
+.index { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.index a { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 14px; background: var(--paper); text-decoration: none; color: var(--ink); border: 1px solid var(--line); min-width: 0; }
+.index a:hover { border-color: var(--rose); }
+.index .num { font-family: var(--f-display); font-size: 24px; color: var(--rose); width: 26px; flex: none; text-align: center; }
+.index .t { flex: 1; min-width: 0; font-size: 15px; line-height: 1.3; }
+.pill { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--line); color: var(--muted); flex: none; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); }
+.pill.adj { background: var(--warn-soft); color: var(--warn); }
+
+/* Roteiro */
+.script { background: var(--paper); border-radius: 22px; box-shadow: var(--shadow); margin-top: 22px; overflow: hidden; scroll-margin-top: 16px; border: 1px solid transparent; }
+.script.is-ok { border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+.script.is-adj { border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+.s-head { padding: 26px 26px 18px; display: grid; gap: 10px; border-bottom: 1px solid var(--line); }
+.s-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.s-num { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.s-head h3 { font-size: clamp(30px, 5vw, 38px); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 13px; color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
+.why { font-size: 15px; color: var(--muted); }
+.tag.new { background: var(--gold-soft); color: var(--gold); border-color: transparent; font-weight: 500; }
+.divider { margin: 56px 0 6px; display: grid; gap: 6px; }
+.divider h2 { font-size: 34px; }
+.divider p { color: var(--muted); font-size: 15px; }
+.why b { color: var(--ink); font-weight: 500; }
+
+.s-body { padding: 22px 26px; display: grid; gap: 20px; }
+.label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+.hook { font-family: var(--f-display); font-style: italic; font-weight: 600; font-size: clamp(24px, 4.4vw, 30px); line-height: 1.2; color: var(--rose); background: var(--rose-soft); padding: 16px 20px; border-radius: 14px; text-wrap: balance; }
+.speech { display: grid; gap: 14px; font-size: 18px; line-height: 1.65; max-width: 62ch; }
+.cue { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; line-height: 1.35; font-weight: 500; padding: 4px 10px; border-radius: 8px; margin: 2px 0; vertical-align: middle; }
+.cue svg { flex: none; }
+.cue.b { background: var(--gold-soft); color: var(--gold); }
+.cue.m { background: var(--rose-soft); color: var(--rose); }
+.cue.t { background: var(--line); color: var(--ink); }
+.cue span { color: var(--ink); font-weight: 400; }
+.extra { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.box { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font-size: 15px; min-width: 0; }
+
+.s-foot { padding: 18px 26px 24px; background: color-mix(in srgb, var(--bg) 55%, var(--paper)); display: grid; gap: 12px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+button { font: inherit; cursor: pointer; }
+.btn { border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 10px 18px; border-radius: 999px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+.btn:hover { border-color: var(--ink); }
+.btn[aria-pressed="true"].approve { background: var(--ok); border-color: var(--ok); color: var(--paper); }
+.btn[aria-pressed="true"].adjust { background: var(--warn); border-color: var(--warn); color: var(--paper); }
+textarea { width: 100%; min-height: 86px; resize: vertical; font: inherit; font-size: 15px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+textarea::placeholder { color: var(--muted); }
+
+/* Seções finais */
+.card { background: var(--paper); border-radius: 20px; box-shadow: var(--shadow); padding: 24px; display: grid; gap: 14px; }
+.card ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 16px; }
+.card li b { font-weight: 500; }
+.note { font-size: 14px; color: var(--muted); }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.r { color: var(--rose); font-weight: 500; white-space: nowrap; font-variant-numeric: tabular-nums; }
+details summary { cursor: pointer; font-weight: 500; }
+details ul { margin-top: 10px; font-size: 14px; }
+footer { margin-top: 48px; text-align: center; font-size: 13px; color: var(--muted); }
+
+/* Barra fixa */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.bar-in { max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.progress { flex: 1; min-width: 180px; display: grid; gap: 6px; font-size: 14px; }
+.progress b { font-weight: 500; }
+.track { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; display: flex; }
+.track i { display: block; height: 100%; transition: width .3s; }
+.track .a { background: var(--ok); } .track .j { background: var(--warn); }
+.send { background: var(--rose); color: var(--paper); border: 0; padding: 12px 20px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.send[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+.copy { background: transparent; }
+.toast { font-size: 13px; color: var(--ok); }
+
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .steps, .extra, .index { grid-template-columns: 1fr; }
+  .s-head, .s-body, .s-foot { padding-left: 18px; padding-right: 18px; }
+  .speech { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="cover">
+    <div class="eyebrow">Planejamento de conteúdo · Novembro e dezembro de 2026</div>
+    <h1>15 roteiros para a <em>Dra. Maria Erylânia</em></h1>
+    <p class="tagline">Não mudo quem você é. Realço sua melhor versão.</p>
+    <div class="meta">
+      <span><b>Formato:</b> Reels de 45 a 70 s, fala no consultório + B-rolls</span>
+      <span><b>Novos:</b> roteiros 11 a 15, fim de ano e verão</span>
+      <span><b>Preparado por:</b> ADR Criativo</span>
+    </div>
+  </header>
+
+  <section class="intro" aria-labelledby="como">
+    <h2 id="como">Como aprovar</h2>
+    <p>Cada roteiro traz o texto que aparece na tela, a fala completa (pronta para o teleprompter) e os takes de apoio que vamos gravar no mesmo dia.</p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><strong>Leia o roteiro</strong>Os trechos coloridos mostram o que entra na tela enquanto você fala.</div>
+      <div class="step"><span class="n">2</span><strong>Aprove ou peça ajuste</strong>Se quiser mudar algo, escreva o que mudar no campo do roteiro.</div>
+      <div class="step"><span class="n">3</span><strong>Envie as respostas</strong>O botão no rodapé manda tudo para o André pelo WhatsApp.</div>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>Os roteiros</h2>
+    <span id="index-count">15 temas</span>
+  </div>
+  <ol class="index" id="index"></ol>
+
+  <div id="scripts"></div>
+
+  <div class="section-title"><h2>Regras do COFFITO</h2></div>
+  <section class="card">
+    <p>Os roteiros foram escritos dentro do Código de Ética da fisioterapia (Resolução 424/2013, atualizada pela Resolução 532/2021). Nas gravações e nas postagens, vamos manter:</p>
+    <ul>
+      <li><b>Antes e depois</b> só com autorização por escrito da paciente (TCLE), sem rosto ou nome se isso não estiver autorizado, e com seu nome, número do CREFITO e data das imagens.</li>
+      <li><b>Sem promessa de resultado:</b> nada de “garantido”, “definitivo” ou prazo exato.</li>
+      <li><b>Sem sensacionalismo</b> e sem comparar ou desmerecer outros profissionais.</li>
+      <li><b>“Especialista”</b> só se o título estiver registrado no COFFITO; se não, usamos “fisioterapeuta dermatofuncional”.</li>
+      <li><b>Injetáveis (roteiros 4, 5, 10, 13 e 14):</b> a Justiça Federal manteve em abril de 2025 o direito do fisioterapeuta de aplicar toxina botulínica, mas o tema segue em disputa entre conselhos. Vale você confirmar com o CREFITO-1 antes de postar esses vídeos.</li>
+    </ul>
+  </section>
+
+  <div class="section-title"><h2>Takes do dia da gravação</h2><span>cerca de 1 hora</span></div>
+  <section class="card">
+    <p>Com duas pacientes-modelo (uma para rosto e uma para corpo), cobrimos os 15 vídeos. As duas precisam assinar o termo de autorização de imagem antes de gravar.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Take</th><th>Roteiros</th><th>Como gravar</th></tr></thead>
+        <tbody id="takes"></tbody>
+      </table>
+    </div>
+    <p class="note">Os trechos marcados como “Marcação” não precisam de take: são linhas e setas desenhadas na edição, sobre o seu próprio rosto.</p>
+  </section>
+
+  <div class="section-title"><h2>De onde vieram os temas</h2></div>
+  <section class="card">
+    <details>
+      <summary>Ver fontes da pesquisa</summary>
+      <ul>
+        <li><a href="https://tribunaonline.com.br/saude/era-pos-caneta-cria-novas-tendencias-de-saude-e-beleza-315633" target="_blank" rel="noopener">Era pós-caneta cria novas tendências de saúde e beleza</a>, Tribuna Online, jul. 2026</li>
+        <li><a href="https://www.tnh1.com.br/noticia/nid/veja-como-evitar-a-flacidez-apos-o-uso-das-canetas-emagrecedoras-7511/" target="_blank" rel="noopener">Como evitar a flacidez após as canetas emagrecedoras</a>, TNH1, jun. 2026</li>
+        <li><a href="https://tribunaonline.com.br/especial/tendencias/fim-da-era-dos-excessos-na-estetica-285046" target="_blank" rel="noopener">Fim da era dos excessos na estética</a>, Tribuna Online, dez. 2025</li>
+        <li><a href="https://rentalmed.com.br/2026/03/13/estetica-regenerativa-x-harmonizacao-facial-a-era-da-harmonizacao-acabou/" target="_blank" rel="noopener">Estética regenerativa x harmonização facial</a>, Rentalmed, mar. 2026</li>
+        <li><a href="https://www.cnnbrasil.com.br/saude/brasil-e-o-pais-que-mais-realiza-cirurgia-plastica-no-mundo-diz-relatorio/" target="_blank" rel="noopener">Brasil é o país que mais realiza cirurgia plástica</a>, CNN Brasil, jul. 2025 (dados ISAPS 2024)</li>
+        <li><a href="https://www.crefito1.org.br/noticias/8579/justica-federal-nega-pedido-da-sociedade-brasileira-de-dermatologia-e-reafirma-competencia-do-fisioterapeuta-para-aplicar-toxina-botulinica" target="_blank" rel="noopener">Justiça reafirma competência do fisioterapeuta para aplicar toxina</a>, CREFITO-1, abr. 2025</li>
+        <li><a href="https://crefito17.org.br/noticia/31/coffito-atualiza-regras-para-uso-de-imagens-textos-e-audios-de-pacientes-com-a-devida-autorizacao" target="_blank" rel="noopener">COFFITO atualiza regras para uso de imagens de pacientes</a>, CREFITO-17</li>
+        <li><a href="https://clinvo.com.br/blog/coffito-redes-sociais-publicidade-fisioterapeuta-o-que-pode/" target="_blank" rel="noopener">COFFITO e redes sociais: o que o fisioterapeuta pode postar</a>, Clinvo</li>
+      </ul>
+    </details>
+  </section>
+
+  <footer>ADR Criativo · Natal/RN</footer>
+</div>
+
+<div class="bar" role="region" aria-label="Respostas">
+  <div class="bar-in">
+    <div class="progress">
+      <span id="prog-text"><b>0 de 15</b> respondidos</span>
+      <div class="track" aria-hidden="true"><i class="a" id="tr-a" style="width:0"></i><i class="j" id="tr-j" style="width:0"></i></div>
+    </div>
+    <button class="btn copy" id="copy" type="button">Copiar respostas</button>
+    <a class="send" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      Enviar no WhatsApp
+    </a>
+    <span class="toast" id="toast" role="status"></span>
+  </div>
+</div>
+
+<script>
+const WA = "5584999778721";
+const S = [
+ {t:"Flacidez depois da caneta", obj:"Alcance · tema do momento", dur:"cerca de 60 s",
+  why:"As vendas das canetas emagrecedoras subiram 125% no 1º trimestre de 2026, e as clínicas relatam mais gente buscando firmeza durante e depois do emagrecimento.",
+  hook:"Emagreceu com a caneta e a pele não acompanhou?",
+  fala:["Você emagreceu com a caneta, o número na balança caiu… mas a pele não acompanhou?",
+   "Isso tem explicação. Quando o peso cai rápido, a gordura que sustentava a pele vai embora antes de a pele conseguir se retrair. [[B:mãos da Dra. avaliando a pele do braço e do abdômen de uma paciente]]",
+   "E não é só no corpo. No rosto, a perda de volume pode deixar a expressão mais cansada. [[M:setas leves nas maçãs do rosto e na linha da mandíbula da Dra.]]",
+   "A boa notícia é que dá para cuidar disso durante o emagrecimento, e não só depois.",
+   "Aqui no consultório, o caminho costuma juntar três coisas. Estimular colágeno, com bioestimuladores ou com tecnologias como a radiofrequência. [[B:radiofrequência sendo aplicada no abdômen]] Fortalecer o músculo, porque é ele que dá sustentação, então a musculação é parceira. E cuidar da proteína na alimentação, junto com o seu médico e a sua nutricionista.",
+   "O protocolo certo depende da sua pele, da sua idade e de quanto você perdeu. Por isso tudo começa pela avaliação."],
+  cta:"Está usando ou já usou a caneta? Comenta FIRMEZA que eu te explico como funciona a avaliação.",
+  leg:"Emagrecer rápido pode cobrar da pele. Dá para cuidar da firmeza durante o processo, com avaliação e protocolo individual. Comenta FIRMEZA."},
+ {t:"Pós-operatório de lipo", obj:"Autoridade e conversão", dur:"cerca de 60 s",
+  why:"O Brasil foi o país com mais cirurgias plásticas em 2024, e a lipo foi a cirurgia mais feita: 289.766 procedimentos (ISAPS).",
+  hook:"Fez lipo? O pós-operatório também faz o resultado.",
+  fala:["Fez lipo, ou está pensando em fazer? Então presta atenção: a cirurgia é só metade do resultado. A outra metade é o pós-operatório.",
+   "Depois da lipo, o corpo inflama, incha e acumula líquido. Isso é normal. [[B:drenagem linfática manual, close nas mãos]]",
+   "O problema é quando esse processo não é bem acompanhado. Aí podem aparecer endurecimentos e ondulações embaixo da pele, a famosa fibrose.",
+   "É aqui que entra a fisioterapia dermatofuncional. Com drenagem linfática, técnicas manuais e aparelhos, a gente ajuda o corpo a reduzir o inchaço, organizar a cicatrização e prevenir a fibrose. [[B:ultrassom ou radiofrequência no abdômen; cinta modeladora sobre a maca]]",
+   "E um detalhe importante: o ideal é começar assim que o seu cirurgião liberar, muitas vezes ainda nos primeiros dias. Esperar o problema aparecer para procurar ajuda deixa tudo mais difícil.",
+   "E cada pós-operatório é feito junto com as orientações do seu cirurgião. [[B:Dra. anotando na ficha da paciente]]"],
+  cta:"Vai operar? Salva este vídeo e manda para quem também vai.",
+  leg:"A lipo não termina no centro cirúrgico. Um pós-operatório bem acompanhado ajuda a controlar o inchaço e prevenir a fibrose. Salve e compartilhe."},
+ {t:"Parecer descansada, não diferente", obj:"Posicionamento · resultado natural", dur:"cerca de 55 s",
+  why:"A tendência para 2026 é regenerar a pele em vez de encher. O “rosto transformado” perde espaço, e isso conversa direto com o seu lema.",
+  hook:"Você quer parecer descansada, não diferente.",
+  fala:["Sabe quando alguém faz um procedimento e o rosto fica… diferente? Inchado, sem expressão?",
+   "Isso tem até nome: pillow face, o rosto de travesseiro. E é exatamente o que as pacientes não querem mais.",
+   "A frase que eu mais escuto aqui é: “Dra., eu quero melhorar, mas quero continuar parecendo eu”. [[B:paciente se olhando no espelho de mão e sorrindo]]",
+   "E dá. O segredo está em três escolhas.",
+   "Primeiro, tratar a causa, e não só preencher. Às vezes o que falta é qualidade de pele, e não volume. [[M:círculos tracejados nas maçãs do rosto da Dra.]]",
+   "Segundo, respeitar a anatomia de cada rosto. O que fica lindo em uma pessoa pode não combinar com outra. [[B:Dra. fazendo marcações com lápis no rosto de uma paciente]]",
+   "Terceiro, fazer aos poucos. Pequenos ajustes, com intervalo, deixam o resultado leve. [[B:close da seringa sendo preparada]]",
+   "Beleza natural não é não fazer nada. É fazer na medida certa."],
+  cta:"Quer esse tipo de resultado? Me chama no direct e agenda sua avaliação.",
+  leg:"Melhorar sem deixar de ser você. Tratar a causa, respeitar a sua anatomia e fazer aos poucos."},
+ {t:"Bioestimulador de colágeno", obj:"Educação e conversão", dur:"cerca de 60 s",
+  why:"Bioestimuladores e a chamada estética regenerativa estão entre os tratamentos mais buscados em 2026.",
+  hook:"Por que o bioestimulador não aparece no dia seguinte?",
+  fala:["Você fez bioestimulador e no dia seguinte se olhou no espelho… e achou que não mudou nada? Calma. Isso é normal.",
+   "O bioestimulador não é um preenchimento. Ele não coloca volume pronto. Ele estimula o seu próprio corpo a produzir colágeno. [[B:close da aplicação com cânula na lateral do rosto de uma paciente]]",
+   "E colágeno leva tempo para ser fabricado. Por isso o resultado aparece aos poucos: começa a ser percebido em algumas semanas e continua melhorando ao longo dos meses.",
+   "Em geral, são indicadas algumas sessões, com intervalo entre elas. [[B:Dra. explicando o plano para a paciente, apontando para a ficha]] E como é o seu corpo que está produzindo, o efeito costuma durar mais que o de outros procedimentos. Mas isso varia de pessoa para pessoa.",
+   "Ele é indicado para flacidez e para melhorar a firmeza e a qualidade da pele. No rosto e no corpo também: braços, abdômen, glúteos. [[M:setas na linha da mandíbula da Dra., indicando sustentação]]",
+   "Resumindo: é um tratamento de paciência. O resultado vem de dentro para fora, e fica natural."],
+  cta:"Tem dúvida se o bioestimulador é para você? Deixa sua pergunta nos comentários.",
+  leg:"Bioestimulador não é preenchimento. Ele ativa a produção de colágeno, e o resultado aparece de forma gradual e natural."},
+ {t:"Preenchimento ou skinbooster?", obj:"Educação · dúvida frequente", dur:"cerca de 50 s",
+  why:"Ácido hialurônico que hidrata sem dar volume (skinbooster) é um dos pilares de 2026, e muita gente confunde com preenchimento.",
+  hook:"Preenchimento e skinbooster não são a mesma coisa.",
+  fala:["Os dois usam ácido hialurônico. Mas preenchimento e skinbooster fazem coisas bem diferentes.",
+   "O preenchimento usa um ácido hialurônico mais firme. Ele repõe volume e devolve contorno: lábio, queixo, maçã do rosto. [[B:mão da Dra. segurando a seringa de preenchimento; marcação com lápis no queixo de uma paciente]]",
+   "Já o skinbooster usa um ácido hialurônico mais fluido. Ele não muda o formato do rosto. Ele hidrata a pele por dentro e melhora o viço, a textura e as linhas finas. [[B:close da pele com luz lateral; paciente passando a mão no rosto]]",
+   "Então, para lembrar fácil: preenchimento é estrutura. Skinbooster é qualidade de pele. [[T:PREENCHIMENTO = ESTRUTURA · SKINBOOSTER = QUALIDADE DE PELE]]",
+   "E muitas vezes eles se complementam no mesmo planejamento. Quem decide qual faz sentido para você é a avaliação."],
+  cta:"Salva para não confundir mais, e manda para aquela amiga que vive perguntando.",
+  leg:"Mesmo ingrediente, objetivos diferentes. Preenchimento cuida da estrutura; skinbooster, da qualidade da pele."},
+ {t:"Fisioterapeuta faz estética?", obj:"Autoridade · apresenta você e a profissão", dur:"cerca de 55 s",
+  why:"O público ainda pergunta se fisioterapeuta pode fazer estética. Responder com segurança gera confiança antes da primeira consulta.",
+  hook:"Fisioterapeuta faz estética?",
+  fala:["“Mas você é fisioterapeuta e faz estética?” Eu escuto isso quase toda semana. E a resposta é: faço, e com muito orgulho.",
+   "A fisioterapia dermatofuncional é uma especialidade reconhecida pelo conselho da fisioterapia. Ela cuida da pele, do tecido de baixo dela, da circulação e da cicatrização. [[B:diploma ou certificados na parede; Dra. vestindo o jaleco]]",
+   "Na faculdade, a gente estuda anatomia, músculo, sistema linfático e como o corpo se recupera. É essa base que eu uso para planejar cada tratamento. [[B:Dra. palpando o rosto de uma paciente durante a avaliação]]",
+   "Por isso a minha avaliação não olha só para a ruga ou para a mancha. Ela olha como a sua pele, o seu músculo e a sua circulação estão funcionando.",
+   "E vai muito além do rosto: pós-operatório, flacidez, celulite, estrias, cicatrizes. [[B:sequência rápida de 3 atendimentos: rosto, abdômen, drenagem]]",
+   "Estética, para mim, é saúde. É a sua pele funcionando bem."],
+  cta:"Me segue para entender mais sobre a sua pele.",
+  leg:"A dermatofuncional une estética e função: pele, músculo, circulação e cicatrização. Prazer, eu sou a Dra. Maria Erylânia."},
+ {t:"Celulite não é descuido", obj:"Alcance · verão", dur:"cerca de 60 s",
+  why:"Os vídeos saem em novembro e dezembro, quando a procura por tratamentos de corpo cresce, ainda mais em Natal.",
+  hook:"Celulite não é falta de cuidado.",
+  fala:["Se você tem celulite, eu preciso te dizer uma coisa: isso não é falta de cuidado. É algo que aparece na grande maioria das mulheres, inclusive nas magras.",
+   "A celulite acontece por uma mistura de fatores: hormônios, genética, circulação, retenção de líquido e o jeito que a gordura e as fibras se organizam embaixo da pele. [[B:close da pele da coxa com luz lateral; Dra. pinçando a pele para avaliar]]",
+   "É por isso que só creme não resolve. Ele cuida da superfície, e a celulite está mais embaixo. [[B:creme sendo aplicado, depois corte seco para a maca]]",
+   "O que costuma dar resultado é a combinação. No consultório, a gente usa recursos como radiofrequência, terapias de sucção e drenagem, conforme o grau da celulite. [[B:radiofrequência e vacuoterapia na coxa e no glúteo]] E em casa, atividade física, água e alimentação fazem parte do tratamento.",
+   "O objetivo é melhorar a aparência e a saúde da pele. E, para isso, primeiro a gente entende o seu tipo e o seu grau de celulite."],
+  cta:"O verão está chegando. Agenda sua avaliação pelo link da bio.",
+  leg:"Celulite é comum e tem várias causas. Por isso o tratamento é combinado, e começa entendendo o seu grau."},
+ {t:"Estria vermelha ou branca?", obj:"Educação e conversão", dur:"cerca de 55 s",
+  why:"Tema forte para o verão e com técnica própria da fisioterapia (galvanopuntura), o que diferencia o seu perfil.",
+  hook:"Estria vermelha ou branca? Faz toda a diferença.",
+  fala:["Sua estria é vermelha ou branca? Repara, porque isso muda o tratamento.",
+   "A estria vermelha, ou arroxeada, é recente. Ela ainda está em processo de inflamação, e é a fase em que a pele costuma responder melhor. [[B:close de estria recente em quadril ou coxa, com autorização da paciente]]",
+   "A estria branca é mais antiga. Ela já virou uma cicatriz. Dá para melhorar bastante a cor e a textura, mas eu sou honesta com as minhas pacientes: não dá para prometer que ela suma. [[B:Dra. conversando com a paciente na maca]]",
+   "No consultório, a gente trabalha com técnicas que estimulam a pele a se regenerar, como o microagulhamento e a galvanopuntura, que é uma técnica da fisioterapia dermatofuncional. [[B:aplicação de microagulhamento ou galvanopuntura, close na ponteira]]",
+   "O número de sessões depende do tipo de estria, da região e da sua pele.",
+   "Moral da história: apareceu estria vermelha? Esse é o melhor momento para tratar."],
+  cta:"A sua é vermelha ou branca? Me conta nos comentários.",
+  leg:"A cor da estria diz muito sobre o tratamento. As recentes respondem melhor, então não espere ela ficar branca."},
+ {t:"Nem toda barriga é gordura", obj:"Autoridade · tema típico da fisioterapia", dur:"cerca de 65 s",
+  why:"Diástase abdominal é assunto de fisioterapia por excelência e conversa com um público grande: mães no pós-parto.",
+  hook:"Nem toda barriga é gordura.",
+  fala:["Você faz dieta, treina, e a barriga continua lá? Talvez o problema não seja gordura.",
+   "Existem três causas bem comuns, e cada uma é tratada de um jeito.",
+   "A primeira é a gordura localizada. É aquela camada mais grossa, que a gente consegue pinçar. [[B:Dra. avaliando o abdômen com pinçamento]] [[T:1. GORDURA LOCALIZADA]]",
+   "A segunda é a flacidez. A pele sobra, fica mole, e muitas vezes aparece depois de emagrecer ou de uma gestação. [[T:2. FLACIDEZ]]",
+   "E a terceira, que pouca gente conhece: a diástase abdominal. É quando os músculos do abdômen se afastam, o que é muito comum depois da gravidez. A barriga fica estufada mesmo em quem é magra. [[B:Dra. avaliando o abdômen da paciente deitada, com a cabeça levemente elevada]] [[T:3. DIÁSTASE]]",
+   "E aqui vai o alerta: na diástase, nem todo exercício ajuda. Alguns abdominais podem até piorar. O tratamento precisa de exercícios específicos, orientados.",
+   "Por isso, antes de qualquer protocolo, eu faço uma avaliação para saber o que a sua barriga realmente tem."],
+  cta:"Teve bebê e a barriga não voltou? Me chama no direct.",
+  leg:"Gordura, flacidez ou diástase? Cada uma pede um tratamento diferente, e a avaliação mostra o caminho."},
+ {t:"4 mitos sobre a toxina botulínica", obj:"Alcance e engajamento", dur:"cerca de 60 s",
+  why:"É uma das dúvidas mais buscadas e complementa o vídeo de toxina por faixa etária que já está no seu perfil.",
+  hook:"4 mitos sobre a toxina botulínica.",
+  fala:["Quatro coisas que você já ouviu sobre a toxina botulínica, e que não são bem assim.",
+   "Mito 1: “Deixa o rosto parado”. O resultado depende da dose e da técnica. O objetivo é suavizar as linhas, não tirar a sua expressão. [[B:paciente sorrindo e franzindo a testa naturalmente]] [[T:MITO 1]]",
+   "Mito 2: “Vicia”. Não vicia. A pessoa repete porque o efeito é temporário, e gosta do resultado. [[T:MITO 2]]",
+   "Mito 3: “Se parar, fica pior”. Também não. Quando o efeito passa, o músculo volta a funcionar como antes, aos poucos. [[M:setas na testa e entre as sobrancelhas da Dra.]] [[T:MITO 3]]",
+   "Mito 4: “O efeito é na hora”. Ele começa a aparecer em alguns dias, e o resultado completo vem em cerca de duas semanas. [[B:close da aplicação na testa de uma paciente]] [[T:MITO 4]]",
+   "E, em geral, o efeito dura alguns meses, variando de pessoa para pessoa."],
+  cta:"Qual desses você acreditava? Comenta o número.",
+  leg:"Toxina botulínica bem indicada suaviza sem tirar a sua expressão. Qual mito você acreditava?"},
+ {t:"Prepare a pele antes do verão", obj:"Alcance e conversão", dur:"cerca de 55 s", novo:true,
+  why:"Pedido seu para o fim do ano. Muitos tratamentos têm resultado gradual e alguns pedem cuidado com o sol, então novembro é o mês de começar.",
+  hook:"Quer chegar no verão com a pele bonita? Comece agora.",
+  fala:["Se você quer chegar no verão com a pele bonita, o momento de começar é agora, e não em dezembro.",
+   "Primeiro, porque muitos tratamentos têm resultado gradual. O bioestimulador, por exemplo, vai melhorando ao longo das semanas. [[B:Dra. avaliando a pele do rosto de uma paciente com luz lateral]]",
+   "Segundo, porque alguns procedimentos pedem cuidado redobrado com o sol, como os peelings e alguns tipos de laser. Fazer em cima da hora, com sol forte, aumenta o risco de manchas. [[B:close do protetor solar sendo aplicado no rosto]]",
+   "E terceiro: a rotina em casa conta muito. Protetor solar todos os dias, reaplicado ao longo do dia, hidratação da pele e bastante água. [[T:PROTETOR · HIDRATAÇÃO · ÁGUA]]",
+   "O ideal é a gente sentar agora e montar um plano que respeite o seu tempo até o verão. [[B:Dra. mostrando o plano na ficha para a paciente]]"],
+  cta:"Comenta VERÃO que eu te explico como montar o seu plano.",
+  leg:"O verão começa a ser preparado agora: tratamentos no tempo certo, protetor solar e rotina em casa. Comenta VERÃO."},
+ {t:"Corpo para o verão: ainda dá tempo?", obj:"Conversão · tratamento corporal", dur:"cerca de 60 s", novo:true,
+  why:"Pedido seu: tratamento corporal de verão. É a época de maior procura por flacidez, celulite e gordura localizada.",
+  hook:"Tratamento corporal para o verão: ainda dá tempo?",
+  fala:["Faltam poucas semanas para o verão, e a pergunta que mais chega aqui é: ainda dá tempo?",
+   "Dá, mas com planejamento. Tratamento corporal funciona em sessões, e o resultado vem somando uma sessão na outra. [[B:radiofrequência sendo aplicada no abdômen]]",
+   "Para flacidez, a gente pode trabalhar com radiofrequência e bioestimulador. Para a celulite, recursos como a vacuoterapia e a drenagem. E para a gordura localizada, técnicas específicas para cada região. [[B:vacuoterapia na coxa; drenagem linfática]]",
+   "Mas não adianta querer fazer tudo de uma vez. O protocolo certo começa pela avaliação e respeita o seu corpo. [[B:Dra. avaliando o abdômen com pinçamento]]",
+   "E lembra: alimentação, água e exercício também fazem parte do tratamento. [[T:CONSULTÓRIO + ROTINA EM CASA]]"],
+  cta:"Quer saber o que dá tempo de fazer no seu caso? Agenda sua avaliação pelo link da bio.",
+  leg:"Ainda dá tempo de cuidar do corpo para o verão, com planejamento, sessões no tempo certo e rotina em casa."},
+ {t:"Rosto caído depois do Mounjaro?", obj:"Alcance · tema do momento", dur:"cerca de 60 s", novo:true,
+  why:"Pedido seu: Mounjaro, bioestimulador e queda facial. Muita gente percebe o rosto mais caído depois de emagrecer rápido com as canetas.",
+  hook:"Emagreceu com o Mounjaro e o rosto ficou caído?",
+  fala:["Emagreceu com o Mounjaro e agora sente o rosto mais caído, com aparência mais cansada?",
+   "Isso tem explicação. O rosto também tem gordura, e ela ajuda a dar sustentação. Quando a gente emagrece rápido, essa gordura diminui, e a pele nem sempre acompanha. [[T:MENOS GORDURA, MENOS SUSTENTAÇÃO]]",
+   "O resultado é aquela sensação de queda: maçãs do rosto mais vazias, contorno da mandíbula menos definido e o bigode chinês mais marcado. [[B:close lateral do rosto de uma paciente, luz suave]]",
+   "Aqui entra o bioestimulador de colágeno. Ele estimula o seu próprio colágeno e ajuda a devolver firmeza e sustentação, de forma gradual e natural. [[B:close da aplicação com cânula na lateral do rosto]]",
+   "Em alguns casos, ele pode ser combinado com outras técnicas. Quem define o melhor caminho é a avaliação. [[B:Dra. avaliando o rosto de uma paciente]]",
+   "E um recado importante: o acompanhamento do emagrecimento é com o seu médico. O meu papel é cuidar da sua pele durante esse processo."],
+  cta:"Está passando por isso? Me chama no direct com a palavra ROSTO.",
+  leg:"Emagrecer rápido pode deixar o rosto com aspecto de queda. O bioestimulador ajuda a devolver firmeza, de forma gradual e natural. Me chama com ROSTO."},
+ {t:"Bioestimulador também é para o corpo", obj:"Educação e conversão", dur:"cerca de 55 s", novo:true,
+  why:"Junta os três pedidos (verão, Mounjaro e bioestimulador), agora no corpo, onde a flacidez aparece mais depois de emagrecer.",
+  hook:"Bioestimulador também é para o corpo.",
+  fala:["Muita gente acha que bioestimulador é só para o rosto. Mas ele também pode ser usado no corpo.",
+   "Braços, abdômen, glúteos, parte interna da coxa: regiões onde a flacidez costuma aparecer, principalmente depois de emagrecer. [[B:Dra. avaliando a pele do braço e da coxa]]",
+   "Ele estimula o colágeno da sua própria pele, que vai ficando mais firme aos poucos. Por isso, quem quer resultado no verão precisa começar agora. [[B:aplicação de bioestimulador no glúteo ou no abdômen, enquadramento discreto]]",
+   "Em geral, são algumas sessões, com intervalo entre elas, e dá para combinar com tecnologias como a radiofrequência. [[T:RESULTADO GRADUAL · MAIS FIRMEZA]]",
+   "O número de sessões e as regiões dependem da avaliação. Cada corpo responde de um jeito."],
+  cta:"Qual região você trataria primeiro? Comenta aqui.",
+  leg:"Bioestimulador não é só para o rosto. No corpo, ele ajuda a melhorar a firmeza de braços, abdômen e glúteos, aos poucos."},
+ {t:"Fez procedimento? Cuidado com o sol", obj:"Educação · cuidados de verão", dur:"cerca de 55 s", novo:true,
+  why:"Pedido seu: os cuidados antes do verão. Sol, calor e piscina mudam a recuperação de vários procedimentos.",
+  hook:"Fez procedimento? Cuidado com o sol.",
+  fala:["Fez um procedimento estético e já está planejando praia e piscina? Então presta atenção.",
+   "Depois de alguns procedimentos, a pele fica mais sensível. Sol forte, calor intenso e até a piscina podem atrapalhar a recuperação. [[B:paciente de chapéu e óculos passando protetor solar]]",
+   "Nos peelings e em alguns lasers, o sol aumenta o risco de manchas. Por isso eu planejo esses tratamentos fora das semanas de mais exposição. [[B:Dra. conversando com a paciente na maca]]",
+   "Nos injetáveis, como o bioestimulador e o preenchimento, eu costumo orientar evitar calor intenso e exercício pesado nos primeiros dias. [[T:SIGA AS ORIENTAÇÕES DO SEU PÓS]]",
+   "E o protetor solar é obrigatório: todos os dias, com reaplicação.",
+   "Cada procedimento tem o seu pós, e é ele que garante que o resultado fique bonito."],
+  cta:"Salva este vídeo para lembrar antes de ir para a praia.",
+  leg:"Sol, calor e piscina mudam o pós de vários procedimentos. Planeje com antecedência e siga as orientações. Salve para lembrar."}
+];
+const TAKES = [
+ ["Avaliação com pinçamento (braço, abdômen, coxa)","1, 7, 9, 12, 14","Close nas mãos, luz lateral para mostrar a textura"],
+ ["Avaliação do abdômen deitada, cabeça elevada","9","Plano de cima, câmera parada"],
+ ["Drenagem linfática manual","2, 6, 12","Movimento lento, gravado para câmera lenta"],
+ ["Radiofrequência no abdômen e na coxa","1, 2, 7, 12","Um close na ponteira e um plano aberto da sala"],
+ ["Vacuoterapia no glúteo e na coxa","7, 12","Enquadrar sem expor a paciente"],
+ ["Microagulhamento ou galvanopuntura","8","Close na ponteira"],
+ ["Marcação com lápis no rosto da paciente","3, 5","Detalhe na mão da Dra."],
+ ["Seringa sendo preparada","3, 5","Fundo desfocado, luz suave"],
+ ["Aplicação com cânula na lateral do rosto","4, 13","Sem mostrar sangue ou inchaço"],
+ ["Aplicação de bioestimulador no corpo","14","Glúteo ou abdômen, enquadramento discreto"],
+ ["Protetor solar sendo aplicado no rosto","11, 15","Close, luz de janela"],
+ ["Paciente de chapéu e óculos passando protetor","15","Pode ser na área externa da clínica"],
+ ["Close lateral do rosto de uma paciente","13","Luz suave, sem marcação"],
+ ["Dra. conversando com a paciente na maca","8, 15","Plano médio, conversa natural"],
+ ["Aplicação na testa","10","Close, paciente relaxada"],
+ ["Paciente sorrindo e franzindo a testa","10","Expressão natural, sem pose"],
+ ["Paciente se olhando no espelho de mão","3","Sorriso espontâneo"],
+ ["Paciente passando a mão no rosto","5","Luz lateral para mostrar o viço"],
+ ["Dra. explicando o plano e anotando na ficha","2, 4, 8, 11","Plano médio, as duas sentadas"],
+ ["Dra. vestindo o jaleco; certificados na parede","6","Abertura do vídeo de apresentação"],
+ ["Cinta modeladora e creme sobre a maca","2, 7","Detalhe, sem paciente"]
+];
+
+const ICON = {
+  B: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>',
+  M: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 19 19 5M19 5h-7M19 5v7"/></svg>',
+  T: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7V5h16v2M12 5v14M9 19h6"/></svg>'
+};
+const CUE_NAME = {B: "B-roll", M: "Marcação", T: "Texto na tela"};
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = s => esc(s).replace(/\[\[([BMT]):(.+?)\]\]/g, (_, k, v) =>
+  `<span class="cue ${k.toLowerCase()}">${ICON[k]}${CUE_NAME[k]}: <span>${v}</span></span>`);
+
+/* estado (só neste navegador) */
+const KEY = "roteiros-ery-v1";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+
+function renderScripts() {
+  const host = document.getElementById("scripts");
+  host.innerHTML = S.map((s, i) => {
+    const n = i + 1;
+    const sep = n === 11 ? `<div class="divider"><h2>Novos roteiros: fim de ano e verão</h2><p>Temas que você pediu: tratamento corporal de verão, cuidados antes do verão, Mounjaro, bioestimulador e queda facial.</p></div>` : "";
+    return sep + `<article class="script" id="r${n}">
+      <div class="s-head">
+        <div class="s-top"><span class="s-num">Roteiro ${n} de ${S.length}</span><span class="pill" data-pill="${n}">Aguardando</span></div>
+        <h3>${esc(s.t)}</h3>
+        <div class="tags">${s.novo ? '<span class="tag new">Novo · fim de ano e verão</span>' : ""}<span class="tag">${esc(s.obj)}</span><span class="tag">${esc(s.dur)}</span></div>
+        <p class="why"><b>Por que agora:</b> ${esc(s.why)}</p>
+      </div>
+      <div class="s-body">
+        <div><div class="label">Texto na tela, nos primeiros segundos</div><p class="hook">${esc(s.hook)}</p></div>
+        <div><div class="label">Fala</div><div class="speech">${s.fala.map(p => `<p>${fmt(p)}</p>`).join("")}</div></div>
+        <div class="extra">
+          <div class="box"><div class="label">Chamada final</div><p>${esc(s.cta)}</p></div>
+          <div class="box"><div class="label">Legenda do post</div><p>${esc(s.leg)}</p></div>
+        </div>
+      </div>
+      <div class="s-foot">
+        <div class="actions">
+          <button class="btn approve" type="button" data-act="ok" data-n="${n}" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Aprovar</button>
+          <button class="btn adjust" type="button" data-act="adj" data-n="${n}" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Pedir ajuste</button>
+        </div>
+        <label class="label" for="note-${n}" data-note-label="${n}" hidden>O que você quer mudar?</label>
+        <textarea id="note-${n}" data-note="${n}" placeholder="Ex.: trocar a chamada final por “agende pelo WhatsApp”" hidden></textarea>
+      </div>
+    </article>`;
+  }).join("");
+  document.getElementById("index").innerHTML = S.map((s, i) =>
+    `<li><a href="#r${i+1}"><span class="num">${i+1}</span><span class="t">${esc(s.t)}</span><span class="pill" data-pill="${i+1}">Aguardando</span></a></li>`).join("");
+  document.getElementById("takes").innerHTML = TAKES.map(r =>
+    `<tr><td>${esc(r[0])}</td><td class="r">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join("");
+}
+
+function sync() {
+  let a = 0, j = 0;
+  S.forEach((s, i) => {
+    const n = i + 1, st = state[n] || {};
+    if (st.s === "ok") a++; if (st.s === "adj") j++;
+    document.querySelectorAll(`[data-pill="${n}"]`).forEach(p => {
+      p.className = "pill" + (st.s === "ok" ? " ok" : st.s === "adj" ? " adj" : "");
+      p.textContent = st.s === "ok" ? "Aprovado" : st.s === "adj" ? "Ajuste" : "Aguardando";
+    });
+    const card = document.getElementById("r" + n);
+    card.classList.toggle("is-ok", st.s === "ok");
+    card.classList.toggle("is-adj", st.s === "adj");
+    card.querySelector('[data-act="ok"]').setAttribute("aria-pressed", st.s === "ok");
+    card.querySelector('[data-act="adj"]').setAttribute("aria-pressed", st.s === "adj");
+    const ta = card.querySelector("[data-note]"), lb = card.querySelector("[data-note-label]");
+    ta.hidden = lb.hidden = st.s !== "adj";
+    if (document.activeElement !== ta) ta.value = st.note || "";
+  });
+  const done = a + j;
+  document.getElementById("prog-text").innerHTML = `<b>${done} de ${S.length}</b> respondidos · ${a} aprovados${j ? ` · ${j} com ajuste` : ""}`;
+  document.getElementById("tr-a").style.width = (a * 100 / S.length) + "%";
+  document.getElementById("tr-j").style.width = (j * 100 / S.length) + "%";
+  document.getElementById("index-count").textContent = done ? `${done} de ${S.length} respondidos` : `${S.length} temas`;
+  const send = document.getElementById("send");
+  send.setAttribute("aria-disabled", done ? "false" : "true");
+  send.href = done ? `https://wa.me/${WA}?text=${encodeURIComponent(summary())}` : "#";
+}
+
+function summary() {
+  const lines = ["Olá, André! Respostas dos roteiros da Dra. Maria Erylânia:", ""];
+  S.forEach((s, i) => {
+    const st = state[i + 1] || {};
+    const tag = st.s === "ok" ? "APROVADO" : st.s === "adj" ? "AJUSTE" : "sem resposta";
+    lines.push(`${i + 1}. ${s.t}: ${tag}`);
+    if (st.s === "adj" && st.note && st.note.trim()) lines.push(`   → ${st.note.trim()}`);
+  });
+  return lines.join("\n");
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]");
+  if (!b) return;
+  const n = b.dataset.n, act = b.dataset.act, cur = state[n] || {};
+  state[n] = { ...cur, s: cur.s === act ? undefined : act };
+  save(); sync();
+  if (state[n].s === "adj") document.getElementById("note-" + n).focus();
+});
+let tmr;
+document.addEventListener("input", e => {
+  const ta = e.target.closest("[data-note]");
+  if (!ta) return;
+  const n = ta.dataset.note;
+  state[n] = { ...(state[n] || {}), note: ta.value };
+  clearTimeout(tmr); tmr = setTimeout(() => { save(); sync(); }, 300);
+});
+document.getElementById("copy").addEventListener("click", () => {
+  const text = summary(), toast = document.getElementById("toast");
+  const done = () => { toast.textContent = "Respostas copiadas"; setTimeout(() => toast.textContent = "", 2500); };
+  try {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallback(text, done));
+  } catch (err) { fallback(text, done); }
+});
+function fallback(text, done) {
+  const t = document.createElement("textarea");
+  t.value = text; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+  document.body.appendChild(t); t.select();
+  try { document.execCommand("copy"); done(); } catch (e) {}
+  t.remove();
+}
+
+renderScripts();
+sync();
+</script>
+
+</body>
+</html>
