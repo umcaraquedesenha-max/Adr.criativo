@@ -102,6 +102,9 @@ a { color: var(--rose); }
 .tag { font-size: 13px; color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
 .why { font-size: 15px; color: var(--muted); }
 .tag.new { background: var(--gold-soft); color: var(--gold); border-color: transparent; font-weight: 500; }
+.tag.rev { background: var(--rose-soft); color: var(--rose); border-color: transparent; font-weight: 500; }
+.why.ask { color: var(--rose); }
+.why.ask b { color: var(--rose); }
 .divider { margin: 56px 0 6px; display: grid; gap: 6px; }
 .divider h2 { font-size: 34px; }
 .divider p { color: var(--muted); font-size: 15px; }
@@ -179,6 +182,7 @@ html { scroll-behavior: smooth; }
     <div class="meta">
       <span><b>Formato:</b> Reels de 45 a 70 s, fala no consultório + B-rolls</span>
       <span><b>Novos:</b> roteiros 11 a 15, fim de ano e verão</span>
+      <span><b>Revisados:</b> roteiros 1, 2 e 7, conforme seus ajustes</span>
       <span><b>Preparado por:</b> ADR Criativo</span>
     </div>
   </header>
@@ -209,7 +213,7 @@ html { scroll-behavior: smooth; }
       <li><b>Sem promessa de resultado:</b> nada de “garantido”, “definitivo” ou prazo exato.</li>
       <li><b>Sem sensacionalismo</b> e sem comparar ou desmerecer outros profissionais.</li>
       <li><b>“Especialista”</b> só se o título estiver registrado no COFFITO; se não, usamos “fisioterapeuta dermatofuncional”.</li>
-      <li><b>Injetáveis (roteiros 4, 5, 10, 13 e 14):</b> a Justiça Federal manteve em abril de 2025 o direito do fisioterapeuta de aplicar toxina botulínica, mas o tema segue em disputa entre conselhos. Vale você confirmar com o CREFITO-1 antes de postar esses vídeos.</li>
+      <li><b>Injetáveis (roteiros 1, 2, 4, 5, 10, 13 e 14):</b> a Justiça Federal manteve em abril de 2025 o direito do fisioterapeuta de aplicar toxina botulínica, mas o tema segue em disputa entre conselhos. Vale você confirmar com o CREFITO-1 antes de postar esses vídeos.</li>
     </ul>
   </section>
 
@@ -263,192 +267,43 @@ html { scroll-behavior: smooth; }
 <script>
 const WA = "5584999778721";
 const S = [
- {t:"Flacidez depois da caneta", obj:"Alcance · tema do momento", dur:"cerca de 60 s",
-  why:"As vendas das canetas emagrecedoras subiram 125% no 1º trimestre de 2026, e as clínicas relatam mais gente buscando firmeza durante e depois do emagrecimento.",
-  hook:"Emagreceu com a caneta e a pele não acompanhou?",
-  fala:["Você emagreceu com a caneta, o número na balança caiu… mas a pele não acompanhou?",
-   "Isso tem explicação. Quando o peso cai rápido, a gordura que sustentava a pele vai embora antes de a pele conseguir se retrair. [[B:mãos da Dra. avaliando a pele do braço e do abdômen de uma paciente]]",
-   "E não é só no corpo. No rosto, a perda de volume pode deixar a expressão mais cansada. [[M:setas leves nas maçãs do rosto e na linha da mandíbula da Dra.]]",
-   "A boa notícia é que dá para cuidar disso durante o emagrecimento, e não só depois.",
-   "Aqui no consultório, o caminho costuma juntar três coisas. Estimular colágeno, com bioestimuladores ou com tecnologias como a radiofrequência. [[B:radiofrequência sendo aplicada no abdômen]] Fortalecer o músculo, porque é ele que dá sustentação, então a musculação é parceira. E cuidar da proteína na alimentação, junto com o seu médico e a sua nutricionista.",
-   "O protocolo certo depende da sua pele, da sua idade e de quanto você perdeu. Por isso tudo começa pela avaliação."],
-  cta:"Está usando ou já usou a caneta? Comenta FIRMEZA que eu te explico como funciona a avaliação.",
-  leg:"Emagrecer rápido pode cobrar da pele. Dá para cuidar da firmeza durante o processo, com avaliação e protocolo individual. Comenta FIRMEZA."},
- {t:"Pós-operatório de lipo", obj:"Autoridade e conversão", dur:"cerca de 60 s",
-  why:"O Brasil foi o país com mais cirurgias plásticas em 2024, e a lipo foi a cirurgia mais feita: 289.766 procedimentos (ISAPS).",
-  hook:"Fez lipo? O pós-operatório também faz o resultado.",
-  fala:["Fez lipo, ou está pensando em fazer? Então presta atenção: a cirurgia é só metade do resultado. A outra metade é o pós-operatório.",
-   "Depois da lipo, o corpo inflama, incha e acumula líquido. Isso é normal. [[B:drenagem linfática manual, close nas mãos]]",
-   "O problema é quando esse processo não é bem acompanhado. Aí podem aparecer endurecimentos e ondulações embaixo da pele, a famosa fibrose.",
-   "É aqui que entra a fisioterapia dermatofuncional. Com drenagem linfática, técnicas manuais e aparelhos, a gente ajuda o corpo a reduzir o inchaço, organizar a cicatrização e prevenir a fibrose. [[B:ultrassom ou radiofrequência no abdômen; cinta modeladora sobre a maca]]",
-   "E um detalhe importante: o ideal é começar assim que o seu cirurgião liberar, muitas vezes ainda nos primeiros dias. Esperar o problema aparecer para procurar ajuda deixa tudo mais difícil.",
-   "E cada pós-operatório é feito junto com as orientações do seu cirurgião. [[B:Dra. anotando na ficha da paciente]]"],
-  cta:"Vai operar? Salva este vídeo e manda para quem também vai.",
-  leg:"A lipo não termina no centro cirúrgico. Um pós-operatório bem acompanhado ajuda a controlar o inchaço e prevenir a fibrose. Salve e compartilhe."},
- {t:"Parecer descansada, não diferente", obj:"Posicionamento · resultado natural", dur:"cerca de 55 s",
-  why:"A tendência para 2026 é regenerar a pele em vez de encher. O “rosto transformado” perde espaço, e isso conversa direto com o seu lema.",
-  hook:"Você quer parecer descansada, não diferente.",
-  fala:["Sabe quando alguém faz um procedimento e o rosto fica… diferente? Inchado, sem expressão?",
-   "Isso tem até nome: pillow face, o rosto de travesseiro. E é exatamente o que as pacientes não querem mais.",
-   "A frase que eu mais escuto aqui é: “Dra., eu quero melhorar, mas quero continuar parecendo eu”. [[B:paciente se olhando no espelho de mão e sorrindo]]",
-   "E dá. O segredo está em três escolhas.",
-   "Primeiro, tratar a causa, e não só preencher. Às vezes o que falta é qualidade de pele, e não volume. [[M:círculos tracejados nas maçãs do rosto da Dra.]]",
-   "Segundo, respeitar a anatomia de cada rosto. O que fica lindo em uma pessoa pode não combinar com outra. [[B:Dra. fazendo marcações com lápis no rosto de uma paciente]]",
-   "Terceiro, fazer aos poucos. Pequenos ajustes, com intervalo, deixam o resultado leve. [[B:close da seringa sendo preparada]]",
-   "Beleza natural não é não fazer nada. É fazer na medida certa."],
-  cta:"Quer esse tipo de resultado? Me chama no direct e agenda sua avaliação.",
-  leg:"Melhorar sem deixar de ser você. Tratar a causa, respeitar a sua anatomia e fazer aos poucos."},
- {t:"Bioestimulador de colágeno", obj:"Educação e conversão", dur:"cerca de 60 s",
-  why:"Bioestimuladores e a chamada estética regenerativa estão entre os tratamentos mais buscados em 2026.",
-  hook:"Por que o bioestimulador não aparece no dia seguinte?",
-  fala:["Você fez bioestimulador e no dia seguinte se olhou no espelho… e achou que não mudou nada? Calma. Isso é normal.",
-   "O bioestimulador não é um preenchimento. Ele não coloca volume pronto. Ele estimula o seu próprio corpo a produzir colágeno. [[B:close da aplicação com cânula na lateral do rosto de uma paciente]]",
-   "E colágeno leva tempo para ser fabricado. Por isso o resultado aparece aos poucos: começa a ser percebido em algumas semanas e continua melhorando ao longo dos meses.",
-   "Em geral, são indicadas algumas sessões, com intervalo entre elas. [[B:Dra. explicando o plano para a paciente, apontando para a ficha]] E como é o seu corpo que está produzindo, o efeito costuma durar mais que o de outros procedimentos. Mas isso varia de pessoa para pessoa.",
-   "Ele é indicado para flacidez e para melhorar a firmeza e a qualidade da pele. No rosto e no corpo também: braços, abdômen, glúteos. [[M:setas na linha da mandíbula da Dra., indicando sustentação]]",
-   "Resumindo: é um tratamento de paciência. O resultado vem de dentro para fora, e fica natural."],
-  cta:"Tem dúvida se o bioestimulador é para você? Deixa sua pergunta nos comentários.",
-  leg:"Bioestimulador não é preenchimento. Ele ativa a produção de colágeno, e o resultado aparece de forma gradual e natural."},
- {t:"Preenchimento ou skinbooster?", obj:"Educação · dúvida frequente", dur:"cerca de 50 s",
-  why:"Ácido hialurônico que hidrata sem dar volume (skinbooster) é um dos pilares de 2026, e muita gente confunde com preenchimento.",
-  hook:"Preenchimento e skinbooster não são a mesma coisa.",
-  fala:["Os dois usam ácido hialurônico. Mas preenchimento e skinbooster fazem coisas bem diferentes.",
-   "O preenchimento usa um ácido hialurônico mais firme. Ele repõe volume e devolve contorno: lábio, queixo, maçã do rosto. [[B:mão da Dra. segurando a seringa de preenchimento; marcação com lápis no queixo de uma paciente]]",
-   "Já o skinbooster usa um ácido hialurônico mais fluido. Ele não muda o formato do rosto. Ele hidrata a pele por dentro e melhora o viço, a textura e as linhas finas. [[B:close da pele com luz lateral; paciente passando a mão no rosto]]",
-   "Então, para lembrar fácil: preenchimento é estrutura. Skinbooster é qualidade de pele. [[T:PREENCHIMENTO = ESTRUTURA · SKINBOOSTER = QUALIDADE DE PELE]]",
-   "E muitas vezes eles se complementam no mesmo planejamento. Quem decide qual faz sentido para você é a avaliação."],
-  cta:"Salva para não confundir mais, e manda para aquela amiga que vive perguntando.",
-  leg:"Mesmo ingrediente, objetivos diferentes. Preenchimento cuida da estrutura; skinbooster, da qualidade da pele."},
- {t:"Fisioterapeuta faz estética?", obj:"Autoridade · apresenta você e a profissão", dur:"cerca de 55 s",
-  why:"O público ainda pergunta se fisioterapeuta pode fazer estética. Responder com segurança gera confiança antes da primeira consulta.",
-  hook:"Fisioterapeuta faz estética?",
-  fala:["“Mas você é fisioterapeuta e faz estética?” Eu escuto isso quase toda semana. E a resposta é: faço, e com muito orgulho.",
-   "A fisioterapia dermatofuncional é uma especialidade reconhecida pelo conselho da fisioterapia. Ela cuida da pele, do tecido de baixo dela, da circulação e da cicatrização. [[B:diploma ou certificados na parede; Dra. vestindo o jaleco]]",
-   "Na faculdade, a gente estuda anatomia, músculo, sistema linfático e como o corpo se recupera. É essa base que eu uso para planejar cada tratamento. [[B:Dra. palpando o rosto de uma paciente durante a avaliação]]",
-   "Por isso a minha avaliação não olha só para a ruga ou para a mancha. Ela olha como a sua pele, o seu músculo e a sua circulação estão funcionando.",
-   "E vai muito além do rosto: pós-operatório, flacidez, celulite, estrias, cicatrizes. [[B:sequência rápida de 3 atendimentos: rosto, abdômen, drenagem]]",
-   "Estética, para mim, é saúde. É a sua pele funcionando bem."],
-  cta:"Me segue para entender mais sobre a sua pele.",
-  leg:"A dermatofuncional une estética e função: pele, músculo, circulação e cicatrização. Prazer, eu sou a Dra. Maria Erylânia."},
- {t:"Celulite não é descuido", obj:"Alcance · verão", dur:"cerca de 60 s",
-  why:"Os vídeos saem em novembro e dezembro, quando a procura por tratamentos de corpo cresce, ainda mais em Natal.",
-  hook:"Celulite não é falta de cuidado.",
-  fala:["Se você tem celulite, eu preciso te dizer uma coisa: isso não é falta de cuidado. É algo que aparece na grande maioria das mulheres, inclusive nas magras.",
-   "A celulite acontece por uma mistura de fatores: hormônios, genética, circulação, retenção de líquido e o jeito que a gordura e as fibras se organizam embaixo da pele. [[B:close da pele da coxa com luz lateral; Dra. pinçando a pele para avaliar]]",
-   "É por isso que só creme não resolve. Ele cuida da superfície, e a celulite está mais embaixo. [[B:creme sendo aplicado, depois corte seco para a maca]]",
-   "O que costuma dar resultado é a combinação. No consultório, a gente usa recursos como radiofrequência, terapias de sucção e drenagem, conforme o grau da celulite. [[B:radiofrequência e vacuoterapia na coxa e no glúteo]] E em casa, atividade física, água e alimentação fazem parte do tratamento.",
-   "O objetivo é melhorar a aparência e a saúde da pele. E, para isso, primeiro a gente entende o seu tipo e o seu grau de celulite."],
-  cta:"O verão está chegando. Agenda sua avaliação pelo link da bio.",
-  leg:"Celulite é comum e tem várias causas. Por isso o tratamento é combinado, e começa entendendo o seu grau."},
- {t:"Estria vermelha ou branca?", obj:"Educação e conversão", dur:"cerca de 55 s",
-  why:"Tema forte para o verão e com técnica própria da fisioterapia (galvanopuntura), o que diferencia o seu perfil.",
-  hook:"Estria vermelha ou branca? Faz toda a diferença.",
-  fala:["Sua estria é vermelha ou branca? Repara, porque isso muda o tratamento.",
-   "A estria vermelha, ou arroxeada, é recente. Ela ainda está em processo de inflamação, e é a fase em que a pele costuma responder melhor. [[B:close de estria recente em quadril ou coxa, com autorização da paciente]]",
-   "A estria branca é mais antiga. Ela já virou uma cicatriz. Dá para melhorar bastante a cor e a textura, mas eu sou honesta com as minhas pacientes: não dá para prometer que ela suma. [[B:Dra. conversando com a paciente na maca]]",
-   "No consultório, a gente trabalha com técnicas que estimulam a pele a se regenerar, como o microagulhamento e a galvanopuntura, que é uma técnica da fisioterapia dermatofuncional. [[B:aplicação de microagulhamento ou galvanopuntura, close na ponteira]]",
-   "O número de sessões depende do tipo de estria, da região e da sua pele.",
-   "Moral da história: apareceu estria vermelha? Esse é o melhor momento para tratar."],
-  cta:"A sua é vermelha ou branca? Me conta nos comentários.",
-  leg:"A cor da estria diz muito sobre o tratamento. As recentes respondem melhor, então não espere ela ficar branca."},
- {t:"Nem toda barriga é gordura", obj:"Autoridade · tema típico da fisioterapia", dur:"cerca de 65 s",
-  why:"Diástase abdominal é assunto de fisioterapia por excelência e conversa com um público grande: mães no pós-parto.",
-  hook:"Nem toda barriga é gordura.",
-  fala:["Você faz dieta, treina, e a barriga continua lá? Talvez o problema não seja gordura.",
-   "Existem três causas bem comuns, e cada uma é tratada de um jeito.",
-   "A primeira é a gordura localizada. É aquela camada mais grossa, que a gente consegue pinçar. [[B:Dra. avaliando o abdômen com pinçamento]] [[T:1. GORDURA LOCALIZADA]]",
-   "A segunda é a flacidez. A pele sobra, fica mole, e muitas vezes aparece depois de emagrecer ou de uma gestação. [[T:2. FLACIDEZ]]",
-   "E a terceira, que pouca gente conhece: a diástase abdominal. É quando os músculos do abdômen se afastam, o que é muito comum depois da gravidez. A barriga fica estufada mesmo em quem é magra. [[B:Dra. avaliando o abdômen da paciente deitada, com a cabeça levemente elevada]] [[T:3. DIÁSTASE]]",
-   "E aqui vai o alerta: na diástase, nem todo exercício ajuda. Alguns abdominais podem até piorar. O tratamento precisa de exercícios específicos, orientados.",
-   "Por isso, antes de qualquer protocolo, eu faço uma avaliação para saber o que a sua barriga realmente tem."],
-  cta:"Teve bebê e a barriga não voltou? Me chama no direct.",
-  leg:"Gordura, flacidez ou diástase? Cada uma pede um tratamento diferente, e a avaliação mostra o caminho."},
- {t:"4 mitos sobre a toxina botulínica", obj:"Alcance e engajamento", dur:"cerca de 60 s",
-  why:"É uma das dúvidas mais buscadas e complementa o vídeo de toxina por faixa etária que já está no seu perfil.",
-  hook:"4 mitos sobre a toxina botulínica.",
-  fala:["Quatro coisas que você já ouviu sobre a toxina botulínica, e que não são bem assim.",
-   "Mito 1: “Deixa o rosto parado”. O resultado depende da dose e da técnica. O objetivo é suavizar as linhas, não tirar a sua expressão. [[B:paciente sorrindo e franzindo a testa naturalmente]] [[T:MITO 1]]",
-   "Mito 2: “Vicia”. Não vicia. A pessoa repete porque o efeito é temporário, e gosta do resultado. [[T:MITO 2]]",
-   "Mito 3: “Se parar, fica pior”. Também não. Quando o efeito passa, o músculo volta a funcionar como antes, aos poucos. [[M:setas na testa e entre as sobrancelhas da Dra.]] [[T:MITO 3]]",
-   "Mito 4: “O efeito é na hora”. Ele começa a aparecer em alguns dias, e o resultado completo vem em cerca de duas semanas. [[B:close da aplicação na testa de uma paciente]] [[T:MITO 4]]",
-   "E, em geral, o efeito dura alguns meses, variando de pessoa para pessoa."],
-  cta:"Qual desses você acreditava? Comenta o número.",
-  leg:"Toxina botulínica bem indicada suaviza sem tirar a sua expressão. Qual mito você acreditava?"},
- {t:"Prepare a pele antes do verão", obj:"Alcance e conversão", dur:"cerca de 55 s", novo:true,
-  why:"Pedido seu para o fim do ano. Muitos tratamentos têm resultado gradual e alguns pedem cuidado com o sol, então novembro é o mês de começar.",
-  hook:"Quer chegar no verão com a pele bonita? Comece agora.",
-  fala:["Se você quer chegar no verão com a pele bonita, o momento de começar é agora, e não em dezembro.",
-   "Primeiro, porque muitos tratamentos têm resultado gradual. O bioestimulador, por exemplo, vai melhorando ao longo das semanas. [[B:Dra. avaliando a pele do rosto de uma paciente com luz lateral]]",
-   "Segundo, porque alguns procedimentos pedem cuidado redobrado com o sol, como os peelings e alguns tipos de laser. Fazer em cima da hora, com sol forte, aumenta o risco de manchas. [[B:close do protetor solar sendo aplicado no rosto]]",
-   "E terceiro: a rotina em casa conta muito. Protetor solar todos os dias, reaplicado ao longo do dia, hidratação da pele e bastante água. [[T:PROTETOR · HIDRATAÇÃO · ÁGUA]]",
-   "O ideal é a gente sentar agora e montar um plano que respeite o seu tempo até o verão. [[B:Dra. mostrando o plano na ficha para a paciente]]"],
-  cta:"Comenta VERÃO que eu te explico como montar o seu plano.",
-  leg:"O verão começa a ser preparado agora: tratamentos no tempo certo, protetor solar e rotina em casa. Comenta VERÃO."},
- {t:"Corpo para o verão: ainda dá tempo?", obj:"Conversão · tratamento corporal", dur:"cerca de 60 s", novo:true,
-  why:"Pedido seu: tratamento corporal de verão. É a época de maior procura por flacidez, celulite e gordura localizada.",
-  hook:"Tratamento corporal para o verão: ainda dá tempo?",
-  fala:["Faltam poucas semanas para o verão, e a pergunta que mais chega aqui é: ainda dá tempo?",
-   "Dá, mas com planejamento. Tratamento corporal funciona em sessões, e o resultado vem somando uma sessão na outra. [[B:radiofrequência sendo aplicada no abdômen]]",
-   "Para flacidez, a gente pode trabalhar com radiofrequência e bioestimulador. Para a celulite, recursos como a vacuoterapia e a drenagem. E para a gordura localizada, técnicas específicas para cada região. [[B:vacuoterapia na coxa; drenagem linfática]]",
-   "Mas não adianta querer fazer tudo de uma vez. O protocolo certo começa pela avaliação e respeita o seu corpo. [[B:Dra. avaliando o abdômen com pinçamento]]",
-   "E lembra: alimentação, água e exercício também fazem parte do tratamento. [[T:CONSULTÓRIO + ROTINA EM CASA]]"],
-  cta:"Quer saber o que dá tempo de fazer no seu caso? Agenda sua avaliação pelo link da bio.",
-  leg:"Ainda dá tempo de cuidar do corpo para o verão, com planejamento, sessões no tempo certo e rotina em casa."},
- {t:"Rosto caído depois do Mounjaro?", obj:"Alcance · tema do momento", dur:"cerca de 60 s", novo:true,
-  why:"Pedido seu: Mounjaro, bioestimulador e queda facial. Muita gente percebe o rosto mais caído depois de emagrecer rápido com as canetas.",
-  hook:"Emagreceu com o Mounjaro e o rosto ficou caído?",
-  fala:["Emagreceu com o Mounjaro e agora sente o rosto mais caído, com aparência mais cansada?",
-   "Isso tem explicação. O rosto também tem gordura, e ela ajuda a dar sustentação. Quando a gente emagrece rápido, essa gordura diminui, e a pele nem sempre acompanha. [[T:MENOS GORDURA, MENOS SUSTENTAÇÃO]]",
-   "O resultado é aquela sensação de queda: maçãs do rosto mais vazias, contorno da mandíbula menos definido e o bigode chinês mais marcado. [[B:close lateral do rosto de uma paciente, luz suave]]",
-   "Aqui entra o bioestimulador de colágeno. Ele estimula o seu próprio colágeno e ajuda a devolver firmeza e sustentação, de forma gradual e natural. [[B:close da aplicação com cânula na lateral do rosto]]",
-   "Em alguns casos, ele pode ser combinado com outras técnicas. Quem define o melhor caminho é a avaliação. [[B:Dra. avaliando o rosto de uma paciente]]",
-   "E um recado importante: o acompanhamento do emagrecimento é com o seu médico. O meu papel é cuidar da sua pele durante esse processo."],
-  cta:"Está passando por isso? Me chama no direct com a palavra ROSTO.",
-  leg:"Emagrecer rápido pode deixar o rosto com aspecto de queda. O bioestimulador ajuda a devolver firmeza, de forma gradual e natural. Me chama com ROSTO."},
- {t:"Bioestimulador também é para o corpo", obj:"Educação e conversão", dur:"cerca de 55 s", novo:true,
-  why:"Junta os três pedidos (verão, Mounjaro e bioestimulador), agora no corpo, onde a flacidez aparece mais depois de emagrecer.",
-  hook:"Bioestimulador também é para o corpo.",
-  fala:["Muita gente acha que bioestimulador é só para o rosto. Mas ele também pode ser usado no corpo.",
-   "Braços, abdômen, glúteos, parte interna da coxa: regiões onde a flacidez costuma aparecer, principalmente depois de emagrecer. [[B:Dra. avaliando a pele do braço e da coxa]]",
-   "Ele estimula o colágeno da sua própria pele, que vai ficando mais firme aos poucos. Por isso, quem quer resultado no verão precisa começar agora. [[B:aplicação de bioestimulador no glúteo ou no abdômen, enquadramento discreto]]",
-   "Em geral, são algumas sessões, com intervalo entre elas, e dá para combinar com tecnologias como a radiofrequência. [[T:RESULTADO GRADUAL · MAIS FIRMEZA]]",
-   "O número de sessões e as regiões dependem da avaliação. Cada corpo responde de um jeito."],
-  cta:"Qual região você trataria primeiro? Comenta aqui.",
-  leg:"Bioestimulador não é só para o rosto. No corpo, ele ajuda a melhorar a firmeza de braços, abdômen e glúteos, aos poucos."},
- {t:"Fez procedimento? Cuidado com o sol", obj:"Educação · cuidados de verão", dur:"cerca de 55 s", novo:true,
-  why:"Pedido seu: os cuidados antes do verão. Sol, calor e piscina mudam a recuperação de vários procedimentos.",
-  hook:"Fez procedimento? Cuidado com o sol.",
-  fala:["Fez um procedimento estético e já está planejando praia e piscina? Então presta atenção.",
-   "Depois de alguns procedimentos, a pele fica mais sensível. Sol forte, calor intenso e até a piscina podem atrapalhar a recuperação. [[B:paciente de chapéu e óculos passando protetor solar]]",
-   "Nos peelings e em alguns lasers, o sol aumenta o risco de manchas. Por isso eu planejo esses tratamentos fora das semanas de mais exposição. [[B:Dra. conversando com a paciente na maca]]",
-   "Nos injetáveis, como o bioestimulador e o preenchimento, eu costumo orientar evitar calor intenso e exercício pesado nos primeiros dias. [[T:SIGA AS ORIENTAÇÕES DO SEU PÓS]]",
-   "E o protetor solar é obrigatório: todos os dias, com reaplicação.",
-   "Cada procedimento tem o seu pós, e é ele que garante que o resultado fique bonito."],
-  cta:"Salva este vídeo para lembrar antes de ir para a praia.",
-  leg:"Sol, calor e piscina mudam o pós de vários procedimentos. Planeje com antecedência e siga as orientações. Salve para lembrar."}
+ {"t":"Flacidez depois da caneta","obj":"Alcance · tema do momento","dur":"cerca de 60 s","why":"As vendas das canetas emagrecedoras subiram 125% no 1º trimestre de 2026, e as clínicas relatam mais gente buscando firmeza durante e depois do emagrecimento.","hook":"Emagreceu com a caneta e a pele não acompanhou?","fala":["Você emagreceu com a caneta, o número na balança caiu… mas a pele não acompanhou?","Isso tem explicação. Quando o peso cai rápido, a gordura que dava sustentação vai embora antes de a pele conseguir se retrair. [[B:Dra. avaliando a pele do rosto de uma paciente]]","No rosto, isso aparece como maçãs mais vazias, contorno menos definido e aquele ar de cansaço. No corpo, como flacidez nos braços, no abdômen e nos glúteos. [[B:Dra. avaliando a pele do braço de uma paciente]]","A boa notícia é que dá para cuidar disso durante o emagrecimento, e não só depois.","Aqui no consultório, o grande aliado é o bioestimulador de colágeno. Ele estimula a sua própria pele a produzir colágeno e devolve a firmeza aos poucos, no rosto e no corpo. [[B:close da aplicação com cânula na lateral do rosto]]","Quantas sessões e quais regiões tratar, quem define é a avaliação. Cada pele responde de um jeito."],"cta":"Está usando ou já usou a caneta? Comenta FIRMEZA que eu te explico como funciona a avaliação.","leg":"Emagrecer rápido pode cobrar da pele, no rosto e no corpo. O bioestimulador ajuda a devolver a firmeza, aos poucos. Comenta FIRMEZA.","rev":2,"ajuste":"Sem aparelhos e sem musculação; agora fala de rosto e corpo, com foco no bioestimulador."},
+ {"t":"Bigode chinês: preencher resolve?","obj":"Educação · queixa muito comum","dur":"cerca de 55 s","rev":2,"ajuste":"Tema novo no lugar do pós-operatório de lipo, que você não faz.","why":"Bigode chinês é uma das queixas mais comuns no consultório e conversa direto com o preenchimento e o bioestimulador, que você já faz.","hook":"Bigode chinês: só preencher resolve?","fala":["Bigode chinês: aquele sulco que vai do nariz até o canto da boca. Será que é só preencher?","Nem sempre. Muitas vezes, o sulco aparece porque a região das maçãs do rosto perdeu sustentação, e a pele desceu um pouquinho. [[B:close lateral do rosto de uma paciente, luz suave]]","Se a gente só enche o sulco, o rosto pode ficar pesado. Por isso a avaliação olha o rosto inteiro, e não só a linha. [[B:Dra. fazendo marcações com lápis no rosto de uma paciente]]","Às vezes, o caminho é devolver sustentação em outros pontos, com preenchimento. Às vezes, é melhorar a firmeza da pele com bioestimulador. E muitas vezes, é a combinação dos dois. [[T:SUSTENTAÇÃO + QUALIDADE DE PELE]]","O objetivo é suavizar, com naturalidade, sem deixar o rosto diferente."],"cta":"Esse é o seu incômodo? Me chama no direct que eu te explico como funciona a avaliação.","leg":"Bigode chinês nem sempre se resolve só preenchendo o sulco. A avaliação olha o rosto inteiro para tratar a causa."},
+ {"t":"Parecer descansada, não diferente","obj":"Posicionamento · resultado natural","dur":"cerca de 55 s","why":"A tendência para 2026 é regenerar a pele em vez de encher. O “rosto transformado” perde espaço, e isso conversa direto com o seu lema.","hook":"Você quer parecer descansada, não diferente.","fala":["Sabe quando alguém faz um procedimento e o rosto fica… diferente? Inchado, sem expressão?","Isso tem até nome: pillow face, o rosto de travesseiro. E é exatamente o que as pacientes não querem mais.","A frase que eu mais escuto aqui é: “Dra., eu quero melhorar, mas quero continuar parecendo eu”. [[B:paciente se olhando no espelho de mão e sorrindo]]","E dá. O segredo está em três escolhas.","Primeiro, tratar a causa, e não só preencher. Às vezes o que falta é qualidade de pele, e não volume. [[M:círculos tracejados nas maçãs do rosto da Dra.]]","Segundo, respeitar a anatomia de cada rosto. O que fica lindo em uma pessoa pode não combinar com outra. [[B:Dra. fazendo marcações com lápis no rosto de uma paciente]]","Terceiro, fazer aos poucos. Pequenos ajustes, com intervalo, deixam o resultado leve. [[B:close da seringa sendo preparada]]","Beleza natural não é não fazer nada. É fazer na medida certa."],"cta":"Quer esse tipo de resultado? Me chama no direct e agenda sua avaliação.","leg":"Melhorar sem deixar de ser você. Tratar a causa, respeitar a sua anatomia e fazer aos poucos."},
+ {"t":"Bioestimulador de colágeno","obj":"Educação e conversão","dur":"cerca de 60 s","why":"Bioestimuladores e a chamada estética regenerativa estão entre os tratamentos mais buscados em 2026.","hook":"Por que o bioestimulador não aparece no dia seguinte?","fala":["Você fez bioestimulador e no dia seguinte se olhou no espelho… e achou que não mudou nada? Calma. Isso é normal.","O bioestimulador não é um preenchimento. Ele não coloca volume pronto. Ele estimula o seu próprio corpo a produzir colágeno. [[B:close da aplicação com cânula na lateral do rosto de uma paciente]]","E colágeno leva tempo para ser fabricado. Por isso o resultado aparece aos poucos: começa a ser percebido em algumas semanas e continua melhorando ao longo dos meses.","Em geral, são indicadas algumas sessões, com intervalo entre elas. [[B:Dra. explicando o plano para a paciente, apontando para a ficha]] E como é o seu corpo que está produzindo, o efeito costuma durar mais que o de outros procedimentos. Mas isso varia de pessoa para pessoa.","Ele é indicado para flacidez e para melhorar a firmeza e a qualidade da pele. No rosto e no corpo também: braços, abdômen, glúteos. [[M:setas na linha da mandíbula da Dra., indicando sustentação]]","Resumindo: é um tratamento de paciência. O resultado vem de dentro para fora, e fica natural."],"cta":"Tem dúvida se o bioestimulador é para você? Deixa sua pergunta nos comentários.","leg":"Bioestimulador não é preenchimento. Ele ativa a produção de colágeno, e o resultado aparece de forma gradual e natural."},
+ {"t":"Preenchimento ou skinbooster?","obj":"Educação · dúvida frequente","dur":"cerca de 50 s","why":"Ácido hialurônico que hidrata sem dar volume (skinbooster) é um dos pilares de 2026, e muita gente confunde com preenchimento.","hook":"Preenchimento e skinbooster não são a mesma coisa.","fala":["Os dois usam ácido hialurônico. Mas preenchimento e skinbooster fazem coisas bem diferentes.","O preenchimento usa um ácido hialurônico mais firme. Ele repõe volume e devolve contorno: lábio, queixo, maçã do rosto. [[B:mão da Dra. segurando a seringa de preenchimento; marcação com lápis no queixo de uma paciente]]","Já o skinbooster usa um ácido hialurônico mais fluido. Ele não muda o formato do rosto. Ele hidrata a pele por dentro e melhora o viço, a textura e as linhas finas. [[B:close da pele com luz lateral; paciente passando a mão no rosto]]","Então, para lembrar fácil: preenchimento é estrutura. Skinbooster é qualidade de pele. [[T:PREENCHIMENTO = ESTRUTURA · SKINBOOSTER = QUALIDADE DE PELE]]","E muitas vezes eles se complementam no mesmo planejamento. Quem decide qual faz sentido para você é a avaliação."],"cta":"Salva para não confundir mais, e manda para aquela amiga que vive perguntando.","leg":"Mesmo ingrediente, objetivos diferentes. Preenchimento cuida da estrutura; skinbooster, da qualidade da pele."},
+ {"t":"Fisioterapeuta faz estética?","obj":"Autoridade · apresenta você e a profissão","dur":"cerca de 55 s","why":"O público ainda pergunta se fisioterapeuta pode fazer estética. Responder com segurança gera confiança antes da primeira consulta.","hook":"Fisioterapeuta faz estética?","fala":["“Mas você é fisioterapeuta e faz estética?” Eu escuto isso quase toda semana. E a resposta é: faço, e com muito orgulho.","A fisioterapia dermatofuncional é uma especialidade reconhecida pelo conselho da fisioterapia. Ela cuida da pele, do tecido de baixo dela, da circulação e da cicatrização. [[B:diploma ou certificados na parede; Dra. vestindo o jaleco]]","Na faculdade, a gente estuda anatomia, músculo, sistema linfático e como o corpo se recupera. É essa base que eu uso para planejar cada tratamento. [[B:Dra. palpando o rosto de uma paciente durante a avaliação]]","Por isso a minha avaliação não olha só para a ruga ou para a mancha. Ela olha como a sua pele, o seu músculo e a sua circulação estão funcionando.","E vai muito além do rosto: flacidez, celulite, estrias, gordura localizada. [[B:sequência rápida de 3 atendimentos: rosto, abdômen, coxa]]","Estética, para mim, é saúde. É a sua pele funcionando bem."],"cta":"Me segue para entender mais sobre a sua pele.","leg":"A dermatofuncional une estética e função: pele, músculo, circulação e cicatrização. Prazer, eu sou a Dra. Maria Erylânia."},
+ {"t":"Celulite não é descuido","obj":"Alcance · verão","dur":"cerca de 60 s","why":"Os vídeos saem em novembro e dezembro, quando a procura por tratamentos de corpo cresce, ainda mais em Natal.","hook":"Celulite não é falta de cuidado.","fala":["Se você tem celulite, eu preciso te dizer uma coisa: isso não é falta de cuidado. É algo que aparece na grande maioria das mulheres, inclusive nas magras.","A celulite acontece por uma mistura de fatores: hormônios, genética, circulação, retenção de líquido e o jeito que a gordura e as fibras se organizam embaixo da pele. [[B:close da pele da coxa com luz lateral; Dra. pinçando a pele para avaliar]]","É por isso que só creme não resolve. Ele cuida da superfície, e a celulite está mais embaixo. [[B:creme sendo aplicado, depois corte seco para a maca]]","Aqui no consultório, um dos tratamentos que eu uso é a intradermoterapia: pequenas aplicações de ativos direto na região, para agir onde a celulite se forma. [[B:aplicação de intradermoterapia na coxa, close nas mãos]]","E em casa, atividade física, água e alimentação também fazem parte do tratamento.","O número de sessões depende do seu tipo e do grau da celulite. Por isso, tudo começa pela avaliação."],"cta":"O verão está chegando. Agenda sua avaliação pelo link da bio.","leg":"Celulite é comum e tem várias causas. A intradermoterapia age direto na região, e tudo começa entendendo o seu grau.","rev":2,"ajuste":"Sem aparelhos; o tratamento agora é a intradermoterapia."},
+ {"t":"Estria vermelha ou branca?","obj":"Educação e conversão","dur":"cerca de 55 s","why":"Tema forte para o verão: muita gente quer tratar estrias antes de ir à praia.","hook":"Estria vermelha ou branca? Faz toda a diferença.","fala":["Sua estria é vermelha ou branca? Repara, porque isso muda o tratamento.","A estria vermelha, ou arroxeada, é recente. Ela ainda está em processo de inflamação, e é a fase em que a pele costuma responder melhor. [[B:close de estria recente em quadril ou coxa, com autorização da paciente]]","A estria branca é mais antiga. Ela já virou uma cicatriz. Dá para melhorar bastante a cor e a textura, mas eu sou honesta com as minhas pacientes: não dá para prometer que ela suma. [[B:Dra. conversando com a paciente na maca]]","No consultório, a gente trabalha com técnicas que estimulam a pele a se regenerar, como o microagulhamento. [[B:aplicação de microagulhamento na região, close]]","O número de sessões depende do tipo de estria, da região e da sua pele.","Moral da história: apareceu estria vermelha? Esse é o melhor momento para tratar."],"cta":"A sua é vermelha ou branca? Me conta nos comentários.","leg":"A cor da estria diz muito sobre o tratamento. As recentes respondem melhor, então não espere ela ficar branca.","pergunta":"Você faz microagulhamento para estrias? Se não fizer, me diga qual técnica usa."},
+ {"t":"Nem toda barriga é gordura","obj":"Autoridade · tema típico da fisioterapia","dur":"cerca de 65 s","why":"Diástase abdominal é assunto de fisioterapia por excelência e conversa com um público grande: mães no pós-parto.","hook":"Nem toda barriga é gordura.","fala":["Você faz dieta, treina, e a barriga continua lá? Talvez o problema não seja gordura.","Existem três causas bem comuns, e cada uma é tratada de um jeito.","A primeira é a gordura localizada. É aquela camada mais grossa, que a gente consegue pinçar. [[B:Dra. avaliando o abdômen com pinçamento]] [[T:1. GORDURA LOCALIZADA]]","A segunda é a flacidez. A pele sobra, fica mole, e muitas vezes aparece depois de emagrecer ou de uma gestação. [[T:2. FLACIDEZ]]","E a terceira, que pouca gente conhece: a diástase abdominal. É quando os músculos do abdômen se afastam, o que é muito comum depois da gravidez. A barriga fica estufada mesmo em quem é magra. [[B:Dra. avaliando o abdômen da paciente deitada, com a cabeça levemente elevada]] [[T:3. DIÁSTASE]]","E aqui vai o alerta: na diástase, nem todo exercício ajuda. Alguns abdominais podem até piorar. O tratamento precisa de exercícios específicos, orientados.","Por isso, antes de qualquer protocolo, eu faço uma avaliação para saber o que a sua barriga realmente tem."],"cta":"Teve bebê e a barriga não voltou? Me chama no direct.","leg":"Gordura, flacidez ou diástase? Cada uma pede um tratamento diferente, e a avaliação mostra o caminho."},
+ {"t":"4 mitos sobre a toxina botulínica","obj":"Alcance e engajamento","dur":"cerca de 60 s","why":"É uma das dúvidas mais buscadas e complementa o vídeo de toxina por faixa etária que já está no seu perfil.","hook":"4 mitos sobre a toxina botulínica.","fala":["Quatro coisas que você já ouviu sobre a toxina botulínica, e que não são bem assim.","Mito 1: “Deixa o rosto parado”. O resultado depende da dose e da técnica. O objetivo é suavizar as linhas, não tirar a sua expressão. [[B:paciente sorrindo e franzindo a testa naturalmente]] [[T:MITO 1]]","Mito 2: “Vicia”. Não vicia. A pessoa repete porque o efeito é temporário, e gosta do resultado. [[T:MITO 2]]","Mito 3: “Se parar, fica pior”. Também não. Quando o efeito passa, o músculo volta a funcionar como antes, aos poucos. [[M:setas na testa e entre as sobrancelhas da Dra.]] [[T:MITO 3]]","Mito 4: “O efeito é na hora”. Ele começa a aparecer em alguns dias, e o resultado completo vem em cerca de duas semanas. [[B:close da aplicação na testa de uma paciente]] [[T:MITO 4]]","E, em geral, o efeito dura alguns meses, variando de pessoa para pessoa."],"cta":"Qual desses você acreditava? Comenta o número.","leg":"Toxina botulínica bem indicada suaviza sem tirar a sua expressão. Qual mito você acreditava?"},
+ {"t":"Prepare a pele antes do verão","obj":"Alcance e conversão","dur":"cerca de 55 s","novo":true,"why":"Pedido seu para o fim do ano. Muitos tratamentos têm resultado gradual e alguns pedem cuidado com o sol, então novembro é o mês de começar.","hook":"Quer chegar no verão com a pele bonita? Comece agora.","fala":["Se você quer chegar no verão com a pele bonita, o momento de começar é agora, e não em dezembro.","Primeiro, porque muitos tratamentos têm resultado gradual. O bioestimulador, por exemplo, vai melhorando ao longo das semanas. [[B:Dra. avaliando a pele do rosto de uma paciente com luz lateral]]","Segundo, porque alguns procedimentos pedem cuidado redobrado com o sol, como os peelings e alguns tipos de laser. Fazer em cima da hora, com sol forte, aumenta o risco de manchas. [[B:close do protetor solar sendo aplicado no rosto]]","E terceiro: a rotina em casa conta muito. Protetor solar todos os dias, reaplicado ao longo do dia, hidratação da pele e bastante água. [[T:PROTETOR · HIDRATAÇÃO · ÁGUA]]","O ideal é a gente sentar agora e montar um plano que respeite o seu tempo até o verão. [[B:Dra. mostrando o plano na ficha para a paciente]]"],"cta":"Comenta VERÃO que eu te explico como montar o seu plano.","leg":"O verão começa a ser preparado agora: tratamentos no tempo certo, protetor solar e rotina em casa. Comenta VERÃO."},
+ {"t":"Corpo para o verão: ainda dá tempo?","obj":"Conversão · tratamento corporal","dur":"cerca de 60 s","novo":true,"why":"Pedido seu: tratamento corporal de verão. É a época de maior procura por flacidez, celulite e gordura localizada.","hook":"Tratamento corporal para o verão: ainda dá tempo?","fala":["Faltam poucas semanas para o verão, e a pergunta que mais chega aqui é: ainda dá tempo?","Dá, mas com planejamento. Os tratamentos corporais funcionam em sessões, e o resultado vem somando uma sessão na outra. [[B:Dra. avaliando o abdômen com pinçamento]]","Para a flacidez, o bioestimulador ajuda a pele a ficar mais firme aos poucos. Para a celulite e a gordura localizada, a intradermoterapia leva os ativos direto na região que incomoda. [[B:aplicação de intradermoterapia no abdômen ou na coxa]]","Mas não adianta querer fazer tudo de uma vez. O protocolo certo começa pela avaliação e respeita o seu corpo.","E lembra: alimentação, água e exercício também fazem parte do tratamento. [[T:CONSULTÓRIO + ROTINA EM CASA]]"],"cta":"Quer saber o que dá tempo de fazer no seu caso? Agenda sua avaliação pelo link da bio.","leg":"Ainda dá tempo de cuidar do corpo para o verão, com planejamento, sessões no tempo certo e rotina em casa."},
+ {"t":"Rosto caído depois do Mounjaro?","obj":"Alcance · tema do momento","dur":"cerca de 60 s","novo":true,"why":"Pedido seu: Mounjaro, bioestimulador e queda facial. Muita gente percebe o rosto mais caído depois de emagrecer rápido com as canetas.","hook":"Emagreceu com o Mounjaro e o rosto ficou caído?","fala":["Emagreceu com o Mounjaro e agora sente o rosto mais caído, com aparência mais cansada?","Isso tem explicação. O rosto também tem gordura, e ela ajuda a dar sustentação. Quando a gente emagrece rápido, essa gordura diminui, e a pele nem sempre acompanha. [[T:MENOS GORDURA, MENOS SUSTENTAÇÃO]]","O resultado é aquela sensação de queda: maçãs do rosto mais vazias, contorno da mandíbula menos definido e o bigode chinês mais marcado. [[B:close lateral do rosto de uma paciente, luz suave]]","Aqui entra o bioestimulador de colágeno. Ele estimula o seu próprio colágeno e ajuda a devolver firmeza e sustentação, de forma gradual e natural. [[B:close da aplicação com cânula na lateral do rosto]]","Em alguns casos, ele pode ser combinado com outras técnicas. Quem define o melhor caminho é a avaliação. [[B:Dra. avaliando o rosto de uma paciente]]","E um recado importante: o acompanhamento do emagrecimento é com o seu médico. O meu papel é cuidar da sua pele durante esse processo."],"cta":"Está passando por isso? Me chama no direct com a palavra ROSTO.","leg":"Emagrecer rápido pode deixar o rosto com aspecto de queda. O bioestimulador ajuda a devolver firmeza, de forma gradual e natural. Me chama com ROSTO."},
+ {"t":"Bioestimulador também é para o corpo","obj":"Educação e conversão","dur":"cerca de 55 s","novo":true,"why":"Junta os três pedidos (verão, Mounjaro e bioestimulador), agora no corpo, onde a flacidez aparece mais depois de emagrecer.","hook":"Bioestimulador também é para o corpo.","fala":["Muita gente acha que bioestimulador é só para o rosto. Mas ele também pode ser usado no corpo.","Braços, abdômen, glúteos, parte interna da coxa: regiões onde a flacidez costuma aparecer, principalmente depois de emagrecer. [[B:Dra. avaliando a pele do braço e da coxa]]","Ele estimula o colágeno da sua própria pele, que vai ficando mais firme aos poucos. Por isso, quem quer resultado no verão precisa começar agora. [[B:aplicação de bioestimulador no glúteo ou no abdômen, enquadramento discreto]]","Em geral, são algumas sessões, com intervalo entre elas. [[T:RESULTADO GRADUAL · MAIS FIRMEZA]]","O número de sessões e as regiões dependem da avaliação. Cada corpo responde de um jeito."],"cta":"Qual região você trataria primeiro? Comenta aqui.","leg":"Bioestimulador não é só para o rosto. No corpo, ele ajuda a melhorar a firmeza de braços, abdômen e glúteos, aos poucos."},
+ {"t":"Fez procedimento? Cuidado com o sol","obj":"Educação · cuidados de verão","dur":"cerca de 55 s","novo":true,"why":"Pedido seu: os cuidados antes do verão. Sol, calor e piscina mudam a recuperação de vários procedimentos.","hook":"Fez procedimento? Cuidado com o sol.","fala":["Fez um procedimento estético e já está planejando praia e piscina? Então presta atenção.","Depois de alguns procedimentos, a pele fica mais sensível. Sol forte, calor intenso e até a piscina podem atrapalhar a recuperação. [[B:paciente de chapéu e óculos passando protetor solar]]","Em procedimentos como os peelings, o sol aumenta o risco de manchas. Por isso o ideal é planejar esses tratamentos fora das semanas de mais exposição. [[B:Dra. conversando com a paciente na maca]]","Nos injetáveis, como o bioestimulador e o preenchimento, eu costumo orientar evitar calor intenso e exercício pesado nos primeiros dias. [[T:SIGA AS ORIENTAÇÕES DO SEU PÓS]]","E o protetor solar é obrigatório: todos os dias, com reaplicação.","Cada procedimento tem o seu pós, e é ele que garante que o resultado fique bonito."],"cta":"Salva este vídeo para lembrar antes de ir para a praia.","leg":"Sol, calor e piscina mudam o pós de vários procedimentos. Planeje com antecedência e siga as orientações. Salve para lembrar."}
 ];
 const TAKES = [
  ["Avaliação com pinçamento (braço, abdômen, coxa)","1, 7, 9, 12, 14","Close nas mãos, luz lateral para mostrar a textura"],
+ ["Dra. avaliando a pele do rosto de uma paciente","1, 6, 11, 13","Luz lateral, plano próximo"],
  ["Avaliação do abdômen deitada, cabeça elevada","9","Plano de cima, câmera parada"],
- ["Drenagem linfática manual","2, 6, 12","Movimento lento, gravado para câmera lenta"],
- ["Radiofrequência no abdômen e na coxa","1, 2, 7, 12","Um close na ponteira e um plano aberto da sala"],
- ["Vacuoterapia no glúteo e na coxa","7, 12","Enquadrar sem expor a paciente"],
- ["Microagulhamento ou galvanopuntura","8","Close na ponteira"],
- ["Marcação com lápis no rosto da paciente","3, 5","Detalhe na mão da Dra."],
+ ["Aplicação de intradermoterapia (coxa e abdômen)","7, 12","Close nas mãos, enquadrar sem expor a paciente"],
+ ["Microagulhamento em estria (se for usado)","8","Close na região"],
+ ["Marcação com lápis no rosto da paciente","2, 3, 5","Detalhe na mão da Dra."],
  ["Seringa sendo preparada","3, 5","Fundo desfocado, luz suave"],
- ["Aplicação com cânula na lateral do rosto","4, 13","Sem mostrar sangue ou inchaço"],
+ ["Aplicação com cânula na lateral do rosto","1, 4, 13","Sem mostrar sangue ou inchaço"],
  ["Aplicação de bioestimulador no corpo","14","Glúteo ou abdômen, enquadramento discreto"],
- ["Protetor solar sendo aplicado no rosto","11, 15","Close, luz de janela"],
- ["Paciente de chapéu e óculos passando protetor","15","Pode ser na área externa da clínica"],
- ["Close lateral do rosto de uma paciente","13","Luz suave, sem marcação"],
- ["Dra. conversando com a paciente na maca","8, 15","Plano médio, conversa natural"],
  ["Aplicação na testa","10","Close, paciente relaxada"],
  ["Paciente sorrindo e franzindo a testa","10","Expressão natural, sem pose"],
  ["Paciente se olhando no espelho de mão","3","Sorriso espontâneo"],
  ["Paciente passando a mão no rosto","5","Luz lateral para mostrar o viço"],
- ["Dra. explicando o plano e anotando na ficha","2, 4, 8, 11","Plano médio, as duas sentadas"],
+ ["Close lateral do rosto de uma paciente","2, 13","Luz suave, sem marcação"],
+ ["Protetor solar sendo aplicado no rosto","11, 15","Close, luz de janela"],
+ ["Paciente de chapéu e óculos passando protetor","15","Pode ser na área externa da clínica"],
+ ["Dra. explicando o plano e anotando na ficha","4, 8, 11","Plano médio, as duas sentadas"],
+ ["Dra. conversando com a paciente na maca","8, 15","Plano médio, conversa natural"],
  ["Dra. vestindo o jaleco; certificados na parede","6","Abertura do vídeo de apresentação"],
- ["Cinta modeladora e creme sobre a maca","2, 7","Detalhe, sem paciente"]
+ ["Creme sobre a maca","7","Detalhe, sem paciente"]
 ];
 
 const ICON = {
@@ -466,6 +321,8 @@ const KEY = "roteiros-ery-v1";
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+/* roteiro revisado: resposta antiga deixa de valer */
+S.forEach((s, i) => { const st = state[i + 1]; if (st && (st.rev || 1) !== (s.rev || 1)) delete state[i + 1]; });
 
 function renderScripts() {
   const host = document.getElementById("scripts");
@@ -476,8 +333,8 @@ function renderScripts() {
       <div class="s-head">
         <div class="s-top"><span class="s-num">Roteiro ${n} de ${S.length}</span><span class="pill" data-pill="${n}">Aguardando</span></div>
         <h3>${esc(s.t)}</h3>
-        <div class="tags">${s.novo ? '<span class="tag new">Novo · fim de ano e verão</span>' : ""}<span class="tag">${esc(s.obj)}</span><span class="tag">${esc(s.dur)}</span></div>
-        <p class="why"><b>Por que agora:</b> ${esc(s.why)}</p>
+        <div class="tags">${s.rev > 1 ? '<span class="tag rev">Revisado conforme seu pedido</span>' : ""}${s.novo ? '<span class="tag new">Novo · fim de ano e verão</span>' : ""}<span class="tag">${esc(s.obj)}</span><span class="tag">${esc(s.dur)}</span></div>
+        <p class="why"><b>Por que agora:</b> ${esc(s.why)}</p>${s.ajuste ? `<p class="why"><b>O que mudou:</b> ${esc(s.ajuste)}</p>` : ""}${s.pergunta ? `<p class="why ask"><b>Pergunta para você:</b> ${esc(s.pergunta)}</p>` : ""}
       </div>
       <div class="s-body">
         <div><div class="label">Texto na tela, nos primeiros segundos</div><p class="hook">${esc(s.hook)}</p></div>
@@ -548,7 +405,7 @@ document.addEventListener("click", e => {
   const b = e.target.closest("[data-act]");
   if (!b) return;
   const n = b.dataset.n, act = b.dataset.act, cur = state[n] || {};
-  state[n] = { ...cur, s: cur.s === act ? undefined : act };
+  state[n] = { ...cur, s: cur.s === act ? undefined : act, rev: S[n - 1].rev || 1 };
   save(); sync();
   if (state[n].s === "adj") document.getElementById("note-" + n).focus();
 });
@@ -557,7 +414,7 @@ document.addEventListener("input", e => {
   const ta = e.target.closest("[data-note]");
   if (!ta) return;
   const n = ta.dataset.note;
-  state[n] = { ...(state[n] || {}), note: ta.value };
+  state[n] = { ...(state[n] || {}), note: ta.value, rev: S[n - 1].rev || 1 };
   clearTimeout(tmr); tmr = setTimeout(() => { save(); sync(); }, 300);
 });
 document.getElementById("copy").addEventListener("click", () => {
