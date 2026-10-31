@@ -156,7 +156,16 @@ footer { margin-top: 48px; text-align: center; font-size: 13px; color: var(--mut
 .progress b { font-weight: 500; }
 .track { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; display: flex; }
 .track i { display: block; height: 100%; transition: width .3s; }
-.track .a { background: var(--ok); } .track .j { background: var(--warn); }
+.track .a { background: var(--ok); } .track .j { background: var(--warn); } .track .g { background: var(--gold); }
+.pills { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.pill.rec { background: var(--gold-soft); color: var(--gold); }
+.recbox { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; border: 1px dashed var(--gold); color: var(--gold); font-size: 15px; font-weight: 500; cursor: pointer; user-select: none; }
+.recbox input { width: 20px; height: 20px; accent-color: var(--gold); margin: 0; cursor: pointer; }
+.script.is-rec .recbox { background: var(--gold-soft); border-style: solid; }
+.script.is-rec { box-shadow: var(--shadow), 0 0 0 2px color-mix(in srgb, var(--gold) 50%, transparent); }
+.approved-note { display: inline-flex; align-items: center; gap: 8px; color: var(--ok); font-weight: 500; font-size: 15px; padding: 10px 4px; }
+.index .grp { grid-column: 1 / -1; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: 10px; }
+.index .grp:first-child { margin-top: 0; }
 .send { background: var(--rose); color: var(--paper); border: 0; padding: 12px 20px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
 .send[aria-disabled="true"] { opacity: .45; pointer-events: none; }
 .copy { background: transparent; }
@@ -182,7 +191,7 @@ html { scroll-behavior: smooth; }
     <div class="meta">
       <span><b>Formato:</b> Reels de 45 a 70 s, fala no consultório + B-rolls</span>
       <span><b>Novos:</b> roteiros 11 a 15, fim de ano e verão</span>
-      <span><b>Revisados:</b> roteiros 1, 2 e 7, conforme seus ajustes</span>
+      <span><b>Aprovados:</b> 9 de 15 · <b>Revisados:</b> roteiros 1, 2 e 7</span>
       <span><b>Preparado por:</b> ADR Criativo</span>
     </div>
   </header>
@@ -192,13 +201,13 @@ html { scroll-behavior: smooth; }
     <p>Cada roteiro traz o texto que aparece na tela, a fala completa (pronta para o teleprompter) e os takes de apoio que vamos gravar no mesmo dia.</p>
     <div class="steps">
       <div class="step"><span class="n">1</span><strong>Leia o roteiro</strong>Os trechos coloridos mostram o que entra na tela enquanto você fala.</div>
-      <div class="step"><span class="n">2</span><strong>Aprove ou peça ajuste</strong>Se quiser mudar algo, escreva o que mudar no campo do roteiro.</div>
-      <div class="step"><span class="n">3</span><strong>Envie as respostas</strong>O botão no rodapé manda tudo para o André pelo WhatsApp.</div>
+      <div class="step"><span class="n">2</span><strong>Aprove ou peça ajuste</strong>Os aprovados ficam no topo. Nos outros, aprove ou escreva o que mudar.</div>
+      <div class="step"><span class="n">3</span><strong>Marque e envie</strong>Marque “Gravado” nos vídeos feitos e envie tudo pelo WhatsApp no rodapé.</div>
     </div>
   </section>
 
   <div class="section-title">
-    <h2>Os roteiros</h2>
+    <h2>Índice</h2>
     <span id="index-count">15 temas</span>
   </div>
   <ol class="index" id="index"></ol>
@@ -252,8 +261,9 @@ html { scroll-behavior: smooth; }
 <div class="bar" role="region" aria-label="Respostas">
   <div class="bar-in">
     <div class="progress">
-      <span id="prog-text"><b>0 de 15</b> respondidos</span>
+      <span id="prog-text"><b>9 aprovados</b> · <b>0 de 15</b> gravados</span>
       <div class="track" aria-hidden="true"><i class="a" id="tr-a" style="width:0"></i><i class="j" id="tr-j" style="width:0"></i></div>
+      <div class="track" aria-hidden="true"><i class="g" id="tr-g" style="width:0"></i></div>
     </div>
     <button class="btn copy" id="copy" type="button">Copiar respostas</button>
     <a class="send" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">
@@ -324,17 +334,22 @@ const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } c
 /* roteiro revisado: resposta antiga deixa de valer */
 S.forEach((s, i) => { const st = state[i + 1]; if (st && (st.rev || 1) !== (s.rev || 1)) delete state[i + 1]; });
 
-function renderScripts() {
-  const host = document.getElementById("scripts");
-  host.innerHTML = S.map((s, i) => {
-    const n = i + 1;
-    const sep = n === 11 ? `<div class="divider"><h2>Novos roteiros: fim de ano e verão</h2><p>Temas que você pediu: tratamento corporal de verão, cuidados antes do verão, Mounjaro, bioestimulador e queda facial.</p></div>` : "";
-    return sep + `<article class="script" id="r${n}">
+const APROVADOS = [3, 4, 5, 6, 9, 10, 11, 13, 14];
+const isApproved = n => APROVADOS.includes(n);
+const ORDER = [...APROVADOS, ...S.map((_, i) => i + 1).filter(n => !isApproved(n))];
+const RKEY = "roteiros-ery-gravados";
+let rec = {};
+try { rec = JSON.parse(localStorage.getItem(RKEY) || "{}") || {}; } catch (e) { rec = {}; }
+const saveRec = () => { try { localStorage.setItem(RKEY, JSON.stringify(rec)); } catch (e) {} };
+
+function card(n) {
+  const s = S[n - 1], ok = isApproved(n);
+  return `<article class="script${ok ? " is-ok" : ""}" id="r${n}">
       <div class="s-head">
-        <div class="s-top"><span class="s-num">Roteiro ${n} de ${S.length}</span><span class="pill" data-pill="${n}">Aguardando</span></div>
+        <div class="s-top"><span class="s-num">Roteiro ${n}</span><span class="pills"><span class="pill rec" data-recpill="${n}" hidden>Gravado</span><span class="pill" data-pill="${n}">Aguardando</span></span></div>
         <h3>${esc(s.t)}</h3>
-        <div class="tags">${s.rev > 1 ? '<span class="tag rev">Revisado conforme seu pedido</span>' : ""}${s.novo ? '<span class="tag new">Novo · fim de ano e verão</span>' : ""}<span class="tag">${esc(s.obj)}</span><span class="tag">${esc(s.dur)}</span></div>
-        <p class="why"><b>Por que agora:</b> ${esc(s.why)}</p>${s.ajuste ? `<p class="why"><b>O que mudou:</b> ${esc(s.ajuste)}</p>` : ""}${s.pergunta ? `<p class="why ask"><b>Pergunta para você:</b> ${esc(s.pergunta)}</p>` : ""}
+        <div class="tags">${s.rev > 1 && !ok ? '<span class="tag rev">Revisado conforme seu pedido</span>' : ""}${s.novo ? '<span class="tag new">Novo · fim de ano e verão</span>' : ""}<span class="tag">${esc(s.obj)}</span><span class="tag">${esc(s.dur)}</span></div>
+        <p class="why"><b>Por que agora:</b> ${esc(s.why)}</p>${s.ajuste && !ok ? `<p class="why"><b>O que mudou:</b> ${esc(s.ajuste)}</p>` : ""}${s.pergunta && !ok ? `<p class="why ask"><b>Pergunta para você:</b> ${esc(s.pergunta)}</p>` : ""}
       </div>
       <div class="s-body">
         <div><div class="label">Texto na tela, nos primeiros segundos</div><p class="hook">${esc(s.hook)}</p></div>
@@ -346,58 +361,88 @@ function renderScripts() {
       </div>
       <div class="s-foot">
         <div class="actions">
+          ${ok ? `<span class="approved-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Aprovado pela Dra.</span>` : `
           <button class="btn approve" type="button" data-act="ok" data-n="${n}" aria-pressed="false">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Aprovar</button>
           <button class="btn adjust" type="button" data-act="adj" data-n="${n}" aria-pressed="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Pedir ajuste</button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Pedir ajuste</button>`}
+          <label class="recbox" for="rec-${n}"><input type="checkbox" id="rec-${n}" data-rec="${n}"><span>Gravado</span></label>
         </div>
-        <label class="label" for="note-${n}" data-note-label="${n}" hidden>O que você quer mudar?</label>
-        <textarea id="note-${n}" data-note="${n}" placeholder="Ex.: trocar a chamada final por “agende pelo WhatsApp”" hidden></textarea>
+        ${ok ? "" : `<label class="label" for="note-${n}" data-note-label="${n}" hidden>O que você quer mudar?</label>
+        <textarea id="note-${n}" data-note="${n}" placeholder="Ex.: trocar a chamada final por “agende pelo WhatsApp”" hidden></textarea>`}
       </div>
     </article>`;
-  }).join("");
-  document.getElementById("index").innerHTML = S.map((s, i) =>
-    `<li><a href="#r${i+1}"><span class="num">${i+1}</span><span class="t">${esc(s.t)}</span><span class="pill" data-pill="${i+1}">Aguardando</span></a></li>`).join("");
+}
+
+function renderScripts() {
+  const pend = ORDER.filter(n => !isApproved(n));
+  document.getElementById("scripts").innerHTML =
+    `<div class="divider"><h2>Aprovados</h2><p>${APROVADOS.length} roteiros prontos para gravar. Marque “Gravado” quando o vídeo for feito.</p></div>` +
+    APROVADOS.map(card).join("") +
+    `<div class="divider"><h2>Aguardando sua resposta</h2><p>${pend.length} roteiros: os revisados conforme seus ajustes e os que ainda não foram respondidos.</p></div>` +
+    pend.map(card).join("");
+  const item = n => `<li><a href="#r${n}"><span class="num">${n}</span><span class="t">${esc(S[n - 1].t)}</span><span class="pill rec" data-recpill="${n}" hidden>Gravado</span><span class="pill" data-pill="${n}">Aguardando</span></a></li>`;
+  document.getElementById("index").innerHTML =
+    `<li class="grp">Aprovados</li>` + APROVADOS.map(item).join("") +
+    `<li class="grp">Aguardando resposta</li>` + pend.map(item).join("");
   document.getElementById("takes").innerHTML = TAKES.map(r =>
     `<tr><td>${esc(r[0])}</td><td class="r">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join("");
 }
 
 function sync() {
-  let a = 0, j = 0;
+  let a = 0, j = 0, g = 0, novas = 0;
   S.forEach((s, i) => {
-    const n = i + 1, st = state[n] || {};
+    const n = i + 1, ok = isApproved(n), st = ok ? {s: "ok"} : (state[n] || {});
     if (st.s === "ok") a++; if (st.s === "adj") j++;
+    if (!ok && st.s) novas++;
+    if (rec[n]) g++;
     document.querySelectorAll(`[data-pill="${n}"]`).forEach(p => {
       p.className = "pill" + (st.s === "ok" ? " ok" : st.s === "adj" ? " adj" : "");
       p.textContent = st.s === "ok" ? "Aprovado" : st.s === "adj" ? "Ajuste" : "Aguardando";
     });
-    const card = document.getElementById("r" + n);
-    card.classList.toggle("is-ok", st.s === "ok");
-    card.classList.toggle("is-adj", st.s === "adj");
-    card.querySelector('[data-act="ok"]').setAttribute("aria-pressed", st.s === "ok");
-    card.querySelector('[data-act="adj"]').setAttribute("aria-pressed", st.s === "adj");
-    const ta = card.querySelector("[data-note]"), lb = card.querySelector("[data-note-label]");
-    ta.hidden = lb.hidden = st.s !== "adj";
-    if (document.activeElement !== ta) ta.value = st.note || "";
+    document.querySelectorAll(`[data-recpill="${n}"]`).forEach(p => { p.hidden = !rec[n]; });
+    const c = document.getElementById("r" + n);
+    c.classList.toggle("is-ok", st.s === "ok");
+    c.classList.toggle("is-adj", st.s === "adj");
+    c.classList.toggle("is-rec", !!rec[n]);
+    const cb = c.querySelector("[data-rec]"); if (cb) cb.checked = !!rec[n];
+    if (!ok) {
+      c.querySelector('[data-act="ok"]').setAttribute("aria-pressed", st.s === "ok");
+      c.querySelector('[data-act="adj"]').setAttribute("aria-pressed", st.s === "adj");
+      const ta = c.querySelector("[data-note]"), lb = c.querySelector("[data-note-label]");
+      ta.hidden = lb.hidden = st.s !== "adj";
+      if (document.activeElement !== ta) ta.value = st.note || "";
+    }
   });
-  const done = a + j;
-  document.getElementById("prog-text").innerHTML = `<b>${done} de ${S.length}</b> respondidos · ${a} aprovados${j ? ` · ${j} com ajuste` : ""}`;
+  document.getElementById("prog-text").innerHTML = `<b>${a} aprovados</b>${j ? ` · ${j} com ajuste` : ""} · <b>${g} de ${S.length}</b> gravados`;
   document.getElementById("tr-a").style.width = (a * 100 / S.length) + "%";
   document.getElementById("tr-j").style.width = (j * 100 / S.length) + "%";
-  document.getElementById("index-count").textContent = done ? `${done} de ${S.length} respondidos` : `${S.length} temas`;
+  document.getElementById("tr-g").style.width = (g * 100 / S.length) + "%";
+  document.getElementById("index-count").textContent = `${a} aprovados · ${g} gravados`;
   const send = document.getElementById("send");
-  send.setAttribute("aria-disabled", done ? "false" : "true");
-  send.href = done ? `https://wa.me/${WA}?text=${encodeURIComponent(summary())}` : "#";
+  const any = novas || g;
+  send.setAttribute("aria-disabled", any ? "false" : "true");
+  send.href = any ? `https://wa.me/${WA}?text=${encodeURIComponent(summary())}` : "#";
 }
 
 function summary() {
-  const lines = ["Olá, André! Respostas dos roteiros da Dra. Maria Erylânia:", ""];
-  S.forEach((s, i) => {
-    const st = state[i + 1] || {};
-    const tag = st.s === "ok" ? "APROVADO" : st.s === "adj" ? "AJUSTE" : "sem resposta";
-    lines.push(`${i + 1}. ${s.t}: ${tag}`);
-    if (st.s === "adj" && st.note && st.note.trim()) lines.push(`   → ${st.note.trim()}`);
-  });
+  const lines = ["Olá, André! Atualização dos roteiros da Dra. Maria Erylânia:", ""];
+  const pend = ORDER.filter(n => !isApproved(n));
+  const resp = pend.filter(n => (state[n] || {}).s);
+  if (resp.length) {
+    lines.push("Respostas:");
+    resp.forEach(n => {
+      const st = state[n];
+      lines.push(`${n}. ${S[n - 1].t}: ${st.s === "ok" ? "APROVADO" : "AJUSTE"}`);
+      if (st.s === "adj" && st.note && st.note.trim()) lines.push(`   → ${st.note.trim()}`);
+    });
+    lines.push("");
+  }
+  const gr = ORDER.filter(n => rec[n]);
+  if (gr.length) {
+    lines.push("Gravados:");
+    gr.forEach(n => lines.push(`${n}. ${S[n - 1].t}`));
+  }
   return lines.join("\n");
 }
 
@@ -408,6 +453,13 @@ document.addEventListener("click", e => {
   state[n] = { ...cur, s: cur.s === act ? undefined : act, rev: S[n - 1].rev || 1 };
   save(); sync();
   if (state[n].s === "adj") document.getElementById("note-" + n).focus();
+});
+document.addEventListener("change", e => {
+  const cb = e.target.closest("[data-rec]");
+  if (!cb) return;
+  const n = cb.dataset.rec;
+  if (cb.checked) rec[n] = 1; else delete rec[n];
+  saveRec(); sync();
 });
 let tmr;
 document.addEventListener("input", e => {
