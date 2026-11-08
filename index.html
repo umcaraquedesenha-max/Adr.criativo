@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="ADR Criativo | André Gomes, videomaker em Natal/RN">
 <meta property="og:description" content="Vídeos para o Instagram de empresários e profissionais. Eu planejo, gravo e edito. Você só precisa aparecer.">
-<meta property="og:image" content="https://adrcriativo.com.br/img/andre-hero.jpg">
+<meta property="og:image" content="https://adrcriativo.com.br/img/andre-palco.jpg">
 <meta property="og:url" content="https://adrcriativo.com.br/">
 
 <meta name="description" content="André Gomes, videomaker em Natal/RN. Planejo, gravo e edito vídeos para o Instagram de empresários e profissionais.">
@@ -138,7 +138,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .rec{display:flex;align-items:center;gap:7px}
 .rec i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:.15}}
-.af{position:absolute;z-index:4;left:50%;top:27%;width:78px;height:78px;margin:-39px 0 0 -39px;transition:left .45s var(--ease),top .45s var(--ease),width .3s,height .3s,margin .3s;pointer-events:none}
+.af{position:absolute;z-index:4;left:55%;top:36%;width:78px;height:78px;margin:-39px 0 0 -39px;transition:left .45s var(--ease),top .45s var(--ease),width .3s,height .3s,margin .3s;pointer-events:none}
 .af span{position:absolute;width:16px;height:16px;border:2px solid #fff;transition:border-color .2s}
 .af span:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
 .af span:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
@@ -312,6 +312,32 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 @media (max-width:560px){.book{grid-template-columns:1fr}.book-go{width:100%}}
 .nav a.nav-book{color:var(--white);font-weight:600;display:inline-flex;align-items:center;gap:7px}
 .nav a.nav-book i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+
+/* how it works, compact */
+.how{background:var(--paper);color:var(--black);padding-block:clamp(64px,7vw,96px)}
+.how .how-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 40px;margin-bottom:clamp(28px,4vw,44px)}
+.how .how-top h2{font-size:clamp(44px,5.6vw,80px)}
+.how .how-top p{margin:0;color:var(--muted);max-width:34ch;font-size:17px}
+.steps2{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);border-top:2px solid var(--black);padding-top:24px}
+.steps2 li{min-width:0}
+.clap2{display:block;height:12px;width:72px;border-radius:2px;background:repeating-linear-gradient(-45deg,var(--black) 0 8px,var(--paper) 8px 16px);border:2px solid var(--black);margin-bottom:16px}
+.steps2 h3{font-size:clamp(28px,2.6vw,38px)}
+.steps2 p{margin:8px 0 0;color:var(--muted);font-size:16px;max-width:26ch}
+@media (max-width:800px){.steps2{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+/* pitch: the work before the price */
+.pitch{background:var(--black);color:var(--white);padding-block:clamp(80px,9vw,130px) 0}
+.pitch h2{font-size:clamp(48px,7vw,104px)}
+.pitch-lead{margin:24px 0 0;max-width:46ch;font-size:clamp(18px,1.6vw,21px);color:#d8d1c7}
+.pitch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(40px,5vw,64px)}
+.pitch-grid > div{min-width:0;border-top:2px solid var(--red);padding-top:20px}
+.pitch-grid h3{font-size:clamp(26px,2.4vw,34px)}
+.pitch-grid p{margin:10px 0 0;color:var(--muted-d);font-size:16.5px;max-width:34ch}
+.pitch-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin:clamp(40px,5vw,64px) 0 0}
+.pitch-stats > div{min-width:0}
+.pitch-stats dt{font-family:var(--display);font-size:clamp(56px,7vw,96px);line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
+.pitch-stats dd{margin:8px 0 0;color:var(--muted-d);font-size:15.5px;max-width:24ch}
+@media (max-width:800px){.pitch-grid,.pitch-stats{grid-template-columns:1fr}.pitch-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.pitch-stats dd{font-size:13.5px}}
+.plans-sec{padding-top:clamp(72px,8vw,110px)}
 
 /* how */
 .how{background:var(--paper);color:var(--black);padding-block:clamp(80px,9vw,130px)}
@@ -489,7 +515,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
       </div>
       <div class="vf-stage">
         <figure class="vf" id="vf" style="margin:0" aria-label="Foto de André Gomes no visor de uma câmera">
-          <img id="vf-img" src="img/andre-hero.jpg" alt="André Gomes, videomaker da ADR Criativo, sorrindo de camiseta preta" width="760" height="1138">
+          <img id="vf-img" src="img/andre-palco.jpg" alt="André Gomes segurando a câmera no palco, com fumaça e luz laranja ao fundo" width="900" height="1347">
           <span class="grid3"></span>
           <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
           <span class="af" id="af" aria-hidden="true"><span></span><span></span><span></span><span></span><em>AF</em></span>
@@ -512,12 +538,17 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
         <div class="work-head">
           <h2 id="t-work" class="rv"><span class="line"><span>Trabalhos que</span></span><span class="line"><span class="red">já rodaram</span></span></h2>
           <div class="wk-side">
-            <p>Sete clientes, sete nichos. Toque em um card para assistir com som, aqui mesmo.</p>
+            <p>Sete nichos e um evento com nove palestras. Toque em um card para assistir com som, aqui mesmo.</p>
             <div class="wk-nav"><button class="pl-nav" type="button" id="wk-prev" aria-label="Vídeos anteriores"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button class="pl-nav" type="button" id="wk-next" aria-label="Próximos vídeos"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
           </div>
         </div>
         <div class="track-wrap">
           <div class="track" id="track">
+            <button class="card" type="button" data-client="7" data-cursor="Play" aria-label="Assistir 9 palestras do Fórum de Negócios">
+              <video class="loop" muted playsinline loop preload="none" poster="videos/palestra-christiane.jpg" data-src="videos/palestra-christiane-loop.mp4"></video>
+              <span class="shade"></span>
+              <span class="inner"><span class="meta"><span class="chip">Evento</span><span class="ig">9 palestras</span></span><span class="play" aria-hidden="true"><svg><use href="#play"/></svg></span><span><span class="who">Fórum de Negócios</span><span class="handle">Cobertura de palestras</span></span></span>
+            </button>
             <button class="card" type="button" data-client="0" data-cursor="Play" aria-label="Assistir 4 vídeos de Nayara Soares">
               <video class="loop" muted playsinline loop preload="none" poster="videos/nayara-1.jpg" data-src="videos/nayara-1-loop.mp4"></video>
               <span class="shade"></span>
@@ -562,7 +593,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
         <div class="tl" id="tl" role="slider" tabindex="0" aria-label="Linha do tempo dos trabalhos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="ruler" id="ruler"></div>
           <div class="tracks">
-            <div class="tr"><b>V1</b><div class="clips" id="clips"><span class="clip">Nayara</span><span class="clip">Allan</span><span class="clip">Vida</span><span class="clip">Club&amp;Casa</span><span class="clip">Bells</span><span class="clip">J Smith</span><span class="clip">Dra. Maria</span><span class="clip">Você</span></div></div>
+            <div class="tr"><b>V1</b><div class="clips" id="clips"><span class="clip">Fórum</span><span class="clip">Nayara</span><span class="clip">Allan</span><span class="clip">Vida</span><span class="clip">Club&amp;Casa</span><span class="clip">Bells</span><span class="clip">J Smith</span><span class="clip">Dra. Maria</span><span class="clip">Você</span></div></div>
             <div class="tr"><b>A1</b><canvas id="wave" width="1200" height="52"></canvas></div>
           </div>
           <span class="ph" id="ph"></span>
@@ -574,17 +605,33 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 
   <section class="how" id="como" aria-labelledby="t-how">
     <div class="wrap">
-      <div class="how-side">
-        <h2 id="t-how" class="rv"><span class="line"><span>Como</span></span><span class="line"><span>funciona</span></span></h2>
+      <div class="how-top">
+        <h2 id="t-how" class="rv"><span class="line"><span>Como funciona</span></span></h2>
         <p>Você não precisa chegar com ideia pronta nem saber falar na câmera.</p>
-        <div class="counter" aria-hidden="true"><div class="big" id="bignum"><span>1</span></div><div class="of">/4</div></div>
       </div>
-      <ol class="steps">
-        <li class="step" data-n="1"><div class="clap" aria-hidden="true"></div><h3><span class="sn">1</span>Conversa</h3><p>Uma reunião para entender sua marca, seu público e o que você quer alcançar.</p></li>
-        <li class="step" data-n="2"><div class="clap" aria-hidden="true"></div><h3><span class="sn">2</span>Roteiro</h3><p>Eu defino os temas e os ganchos. Você chega na gravação sabendo o que vai falar.</p></li>
-        <li class="step" data-n="3"><div class="clap" aria-hidden="true"></div><h3><span class="sn">3</span>Gravação</h3><p>Sessões quinzenais no seu espaço, com direção em cada take para você falar com naturalidade.</p></li>
-        <li class="step" data-n="4"><div class="clap" aria-hidden="true"></div><h3><span class="sn">4</span>Entrega</h3><p>Vídeos editados e legendados, prontos para postar. A primeira entrega sai em até 48 horas.</p></li>
+      <ol class="steps2">
+        <li><span class="clap2" aria-hidden="true"></span><h3>Conversa</h3><p>Entendo sua marca e o seu público.</p></li>
+        <li><span class="clap2" aria-hidden="true"></span><h3>Roteiro</h3><p>Temas e ganchos prontos para você.</p></li>
+        <li><span class="clap2" aria-hidden="true"></span><h3>Gravação</h3><p>No seu espaço, com direção em cada take.</p></li>
+        <li><span class="clap2" aria-hidden="true"></span><h3>Entrega</h3><p>Primeiros vídeos prontos em até 48 horas.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="pitch" id="trabalho" aria-labelledby="t-pitch">
+    <div class="wrap">
+      <h2 id="t-pitch" class="rv"><span class="line"><span>Você aparece.</span></span><span class="line"><span class="red">Eu cuido do resto.</span></span></h2>
+      <p class="pitch-lead">Do roteiro ao vídeo pronto para postar, tudo passa pela minha mão. Você ganha constância no Instagram sem perder tempo com isso.</p>
+      <div class="pitch-grid">
+        <div><h3>Roteiros que prendem</h3><p>Temas e ganchos pensados para o seu público, para o vídeo segurar a atenção logo nos primeiros segundos.</p></div>
+        <div><h3>Gravação com direção</h3><p>Eu conduzo cada take. Você não precisa saber falar na câmera, só precisa ser você.</p></div>
+        <div><h3>Edição com cara de marca</h3><p>Cortes no ritmo do Reels, legendas dinâmicas e tratamento de áudio e cor em cada vídeo.</p></div>
+      </div>
+      <dl class="pitch-stats">
+        <div><dt>7</dt><dd>nichos atendidos, de consultório a cafeteria</dd></div>
+        <div><dt>9</dt><dd>palestras cobertas em um único evento</dd></div>
+        <div><dt>48h</dt><dd>para a primeira entrega depois da gravação</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -597,28 +644,30 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
       <div class="plans">
         <article class="plan plan--basic">
           <div class="head"><h3>Essencial</h3></div>
-          <div class="price"><b><span class="count" data-to="1200">R$ 1.200</span></b><small>por mês</small></div>
-          <span class="per"><i></i>10 vídeos, R$ 120 cada</span>
+          <div class="price"><b><span class="count" data-to="900">R$ 900</span></b><small>por mês</small></div>
+          <span class="per"><i></i>8 vídeos, R$ 112,50 cada</span>
           <ul>
-            <li><svg aria-hidden="true"><use href="#check"/></svg>10 vídeos por mês</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>8 vídeos por mês</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Roteiro, gravação e direção</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Edição, finalização e legendas</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Tratamento básico de áudio e imagem</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Entregas organizadas ao longo do mês</li>
           </ul>
-          <a class="btn" data-cursor="Falar" href="https://wa.me/5584999778721?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Essencial%20de%2010%20v%C3%ADdeos%20mensais." target="_blank" rel="noopener">Quero o Essencial</a>
+          <a class="btn" data-cursor="Falar" href="https://wa.me/5584999778721?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Essencial%20de%208%20v%C3%ADdeos%20mensais." target="_blank" rel="noopener">Quero o Essencial</a>
         </article>
         <article class="plan plan--pro">
           <div class="head"><h3>Profissional</h3><span class="tag">Menor preço por vídeo</span></div>
-          <div class="price"><b><span class="count" data-to="1900">R$ 1.900</span></b><small>por mês</small></div>
-          <span class="per"><i></i>20 vídeos, R$ 95 cada</span>
+          <div class="price"><b><span class="count" data-to="1300">R$ 1.300</span></b><small>por mês</small></div>
+          <span class="per"><i></i>12 vídeos, R$ 108,33 cada</span>
           <ul>
-            <li><svg aria-hidden="true"><use href="#check"/></svg>20 vídeos por mês</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>12 vídeos por mês</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Roteiro, gravação e direção</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Planejamento mensal e calendário de publicações</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Edição, finalização e legendas</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Tratamento completo de áudio e imagem</li>
             <li><svg aria-hidden="true"><use href="#check"/></svg>Capas personalizadas para os vídeos</li>
           </ul>
-          <a class="btn btn--red" data-cursor="Falar" href="https://wa.me/5584999778721?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Profissional%20de%2020%20v%C3%ADdeos%20mensais." target="_blank" rel="noopener">Quero o Profissional</a>
+          <a class="btn btn--red" data-cursor="Falar" href="https://wa.me/5584999778721?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Profissional%20de%2012%20v%C3%ADdeos%20mensais." target="_blank" rel="noopener">Quero o Profissional</a>
         </article>
       </div>
       <div class="both">
@@ -631,7 +680,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   <section class="about" id="sobre" aria-labelledby="t-about">
     <div class="wrap">
       <div class="photo" id="rack">
-        <img id="rack-img" src="img/andre-sobre.jpg" alt="André Gomes sentado, mexendo no celular durante um evento" width="620" height="927" loading="lazy">
+        <img id="rack-img" src="img/andre-bastidores.jpg" alt="André Gomes filmando nos bastidores de um evento" width="760" height="1138" loading="lazy">
         <span class="fl" id="focus-label" aria-hidden="true">FOCO 100%</span>
       </div>
       <div>
@@ -765,7 +814,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   setTimeout(function(){af.classList.add('lock')},1800);
   if(fine){
     vf.addEventListener('pointermove',function(e){var r=vf.getBoundingClientRect();setAF(Math.max(12,Math.min(88,(e.clientX-r.left)/r.width*100)),Math.max(12,Math.min(88,(e.clientY-r.top)/r.height*100)))});
-    vf.addEventListener('pointerleave',function(){setAF(50,27)});
+    vf.addEventListener('pointerleave',function(){setAF(55,36)});
     $('.hero').addEventListener('pointermove',function(e){
       if(reduce)return;var w=innerWidth,h=innerHeight,dx=(e.clientX/w-.5),dy=(e.clientY/h-.5);
       vf.style.transform='rotateY('+(dx*8)+'deg) rotateX('+(-dy*8)+'deg)';
@@ -773,12 +822,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
     });
     $('.hero').addEventListener('pointerleave',function(){vf.style.transform='';img.style.transform=''});
   }else{
-    var spots=[[50,27],[38,46],[62,58],[50,27]],si=0;
+    var spots=[[55,36],[38,30],[62,58],[55,36]],si=0;
     if(!reduce)setInterval(function(){si=(si+1)%spots.length;setAF(spots[si][0],spots[si][1])},2200);
   }
 
   /* tape marquee, speeds up with scroll */
-  var words=['Psicologia','Advocacia','Planos de saúde','Arquitetura','Cafeteria','Beleza','Estética','Seu negócio'];
+  var words=['Psicologia','Advocacia','Planos de saúde','Arquitetura','Cafeteria','Beleza','Estética','Eventos','Seu negócio'];
   var rows=$$('.tape .row').map(function(row,ri){
     var html='';for(var k=0;k<2;k++){words.forEach(function(w,wi){html+='<span class="'+((wi+ri)%2?'o':'')+'">'+w+'</span><span class="s">✦</span>'})}
     row.innerHTML=html+html;return {el:row,x:0,speed:parseFloat(row.dataset.speed)}
@@ -805,7 +854,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 
 
   /* portfolio videos: live previews + player */
-  var CLIENTS=[{"name": "Nayara Soares", "niche": "Psicologia", "handle": "@nayarasoares.psicologa", "vids": ["nayara-1", "nayara-2", "nayara-3", "nayara-4"]}, {"name": "Allan França", "niche": "Advocacia", "handle": "@adv.allanfranca", "vids": ["allan-1", "allan-2", "allan-3"]}, {"name": "Vida Corretora", "niche": "Planos de saúde", "handle": "@vidacorretora", "vids": ["vidacorretora-2", "vidacorretora-1", "vidacorretora-3"]}, {"name": "Club&Casa", "niche": "Arquitetura", "handle": "@clubecasa.natal", "vids": ["clubecasa-2", "clubecasa-1"]}, {"name": "Bells Cafeteria", "niche": "Cafeteria", "handle": "@bellscafeteriaedoceria", "vids": ["bells-1"]}, {"name": "Studio J Smith", "niche": "Beleza", "handle": "@studiojsmith", "vids": ["jackson-1"]}, {"name": "Dra. Maria Erylania", "niche": "Estética", "handle": "@dra.mariaerylania", "vids": ["ery-1"]}];
+  var CLIENTS=[{"name": "Nayara Soares", "niche": "Psicologia", "handle": "@nayarasoares.psicologa", "vids": ["nayara-1", "nayara-2", "nayara-3", "nayara-4"]}, {"name": "Allan França", "niche": "Advocacia", "handle": "@adv.allanfranca", "vids": ["allan-1", "allan-2", "allan-3"]}, {"name": "Vida Corretora", "niche": "Planos de saúde", "handle": "@vidacorretora", "vids": ["vidacorretora-2", "vidacorretora-1", "vidacorretora-3"]}, {"name": "Club&Casa", "niche": "Arquitetura", "handle": "@clubecasa.natal", "vids": ["clubecasa-2", "clubecasa-1"]}, {"name": "Bells Cafeteria", "niche": "Cafeteria", "handle": "@bellscafeteriaedoceria", "vids": ["bells-1"]}, {"name": "Studio J Smith", "niche": "Beleza", "handle": "@studiojsmith", "vids": ["jackson-1"]}, {"name": "Dra. Maria Erylania", "niche": "Estética", "handle": "@dra.mariaerylania", "vids": ["ery-1"]}, {"name": "Fórum de Negócios", "niche": "Evento", "handle": "Cobertura de palestras", "vids": ["palestra-christiane", "palestra-erik", "palestra-leandro", "palestra-eduardo", "palestra-fabiane", "palestra-giovanni", "palestra-piero", "palestra-alcione", "palestra-roseli"], "titles": ["Palestra de Christiane Klem", "Palestra de Erik Penna", "Palestra de Dr. Leandro Barreto", "Palestra de Eduardo Shinyashiki", "Palestra de Fabiane Maimone", "Palestra de Giovanni Begossi", "Palestra de Piero", "Palestra de Alcione", "Palestra de Roseli"]}];
   var flat=[];CLIENTS.forEach(function(c,ci){c.vids.forEach(function(v,vi){flat.push({ci:ci,vi:vi,id:v})})});
   var cards=$$('.card[data-client]');
   function loadLoop(c){var v=c.querySelector('video.loop');if(v&&!v.src){v.src=v.dataset.src}return v}
@@ -833,7 +882,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   var pl=$('#player'),pv=$('#pl-video'),pos=0,lastFocus=null;
   function render(){
     var it=flat[pos],c=CLIENTS[it.ci];
-    $('#pl-niche').textContent=c.niche;$('#pl-name').textContent=c.name;$('#pl-handle').textContent=c.handle;
+    $('#pl-niche').textContent=c.niche;$('#pl-name').textContent=c.name;$('#pl-handle').textContent=(c.titles&&c.titles[it.vi])||c.handle;
     $('#pl-pos').innerHTML='Vídeo <b>'+(it.vi+1)+'</b> de '+c.vids.length;
     var th=$('#pl-thumbs');th.innerHTML='';
     if(c.vids.length>1){c.vids.forEach(function(v,vi){var b=document.createElement('button');b.type='button';b.style.backgroundImage='url(videos/'+v+'.jpg)';b.setAttribute('aria-label','Vídeo '+(vi+1)+' de '+c.name);b.setAttribute('aria-current',vi===it.vi?'true':'false');b.addEventListener('click',function(){go(flatIndex(it.ci,vi))});th.appendChild(b)})}
