@@ -295,6 +295,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   .pl-wa{display:inline-flex!important}
 }
 
+.wk-all{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;text-decoration:none;color:var(--white);border-bottom:1.5px solid var(--red);padding-bottom:3px}
+.wk-all svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;transition:transform .3s var(--ease)}
+.wk-all:hover svg{transform:translateX(4px)}
 /* booking card (agenda) */
 .book{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 20px;margin-top:30px;max-width:580px;padding:30px 18px 18px 20px;background:var(--white);color:var(--black);text-decoration:none;border-radius:10px;overflow:hidden;transition:transform .3s var(--ease)}
 .book:hover{transform:translateY(-3px)}
@@ -478,6 +481,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
     <a class="logo" href="#inicio" aria-label="ADR Criativo, voltar ao início"><i aria-hidden="true"></i>ADR.CRIATIVO</a>
     <nav class="nav" aria-label="Seções">
       <a href="#trabalhos">Trabalhos</a>
+      <a href="/portfolio/">Portfólio</a>
       <a href="#como">Como funciona</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
@@ -539,6 +543,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
           <h2 id="t-work" class="rv"><span class="line"><span>Trabalhos que</span></span><span class="line"><span class="red">já rodaram</span></span></h2>
           <div class="wk-side">
             <p>Sete nichos e um evento com nove palestras. Toque em um card para assistir com som, aqui mesmo.</p>
+            <a class="wk-all" href="/portfolio/">Ver portfólio completo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <div class="wk-nav"><button class="pl-nav" type="button" id="wk-prev" aria-label="Vídeos anteriores"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button class="pl-nav" type="button" id="wk-next" aria-label="Próximos vídeos"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
           </div>
         </div>
